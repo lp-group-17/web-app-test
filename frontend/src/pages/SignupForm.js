@@ -52,7 +52,7 @@ const SignupForm = () => {
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
     } else {
-      var obj = {firstName:firstName.value, lastName:lastName.value, username:username.value, email:email.value};
+      var obj = {firstName:formFirstName.value, lastName:formLastName.value, username:formUsername.value, email:formEmail.value, password:formPassword.value};
       var js = JSON.stringify(obj);
       try
       {
@@ -68,7 +68,7 @@ const SignupForm = () => {
           var user = {firstName:res.firstName, lastName:res.lastName, id:res.id}
           localStorage.setItem('user_data', JSON.stringify(user));
           setMessage('');
-          window.location.href = '/portal';
+          window.location.href = '/Login';
         }
       }
       catch(e)
