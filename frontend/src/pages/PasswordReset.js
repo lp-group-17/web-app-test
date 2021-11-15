@@ -66,7 +66,7 @@ const PasswordReset = () => {
     <Form noValidate onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="resetTempPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Temporary Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
+        <Form.Control required type="password" placeholder="Temporary Password" onChange={ e => setField('tempPassword', e.target.value) } isInvalid={ !!errors.password }/>
         <Form.Control.Feedback type="invalid">
           Temporary password must match one on record
         </Form.Control.Feedback>
