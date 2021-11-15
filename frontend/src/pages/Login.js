@@ -22,7 +22,7 @@ const Login = () => {
   }
 
   const findFormErrors = () => {
-    const {username, password,} = form
+    const {username, password} = form
     const newErrors = {}
 
     if ( !username || username === "" ) newErrors.username = 'cannot be blank'
