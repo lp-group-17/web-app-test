@@ -59,7 +59,7 @@ const SignupForm = () => {
         const response = await fetch('http://localhost:5000/api/signup', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
         setMessage('');
-        history.push('/Login');
+        history.push('/login');
       }
       catch(e)
       {
