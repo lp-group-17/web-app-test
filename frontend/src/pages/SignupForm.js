@@ -58,18 +58,8 @@ const SignupForm = () => {
       {
         const response = await fetch('http://localhost:5000/api/signup', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
-
-        if (res.id <= 0)
-        {
-          setMessage('User/Password combination incorrect');
-        }
-        else
-        {
-          var user = {firstName:res.firstName, lastName:res.lastName, id:res.id}
-          localStorage.setItem('user_data', JSON.stringify(user));
-          setMessage('');
-          window.location.href = '/Login';
-        }
+        setMessage('');
+        history.push('/Login');
       }
       catch(e)
       {
