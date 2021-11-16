@@ -28,5 +28,5 @@ client.connect();
 var api = require('./api.js');
 api.setApp( app, client );
 
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
+// var firebase = require('firebase');
+// var firebaseui = require('firebaseui');
