@@ -42,7 +42,7 @@ const Login = () => {
       var js = JSON.stringify(obj);
       try
       {
-        const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}}); // this is a comment to test pushing
+        const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
 
         if (res.id <= 0)
