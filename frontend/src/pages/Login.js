@@ -40,7 +40,7 @@ const Login = () => {
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
     } else {
-      var obj = {username:loginUsername.value, password:loginPassword.value};
+      var obj = {username:form.username.value, password:form.password.value};
       var js = JSON.stringify(obj);
       try
       {
