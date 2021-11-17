@@ -73,17 +73,17 @@ const Login = () => {
       <Form.Group className="mb-3" controlId="loginUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-        <FormControl.Feedback type="invalid">
+        {/* <FormControl.Feedback type="invalid">
           Username cannot be blank
-        </FormControl.Feedback>
+        </FormControl.Feedback> */}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="loginPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <FormControl.Feedback type="invalid">
+        {/* <FormControl.Feedback type="invalid">
           Password cannot be blank
-        </FormControl.Feedback>
+        </FormControl.Feedback> */}
       </Form.Group>
 
       <Button variant="primary" type="submit">
