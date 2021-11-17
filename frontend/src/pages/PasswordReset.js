@@ -1,7 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import { Button } from 'react';
 import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
+import { Form } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const PasswordReset = () => {
@@ -45,7 +47,7 @@ const PasswordReset = () => {
       var js = JSON.stringify(obj);
       try
       {
-        const response = await fetch('http://localhost:5000/api/signup', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
+        const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
 
         var user = {firstName:res.username, lastName:res.lastName, id:res.id}
