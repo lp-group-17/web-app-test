@@ -53,7 +53,7 @@ const PasswordReset = () => {
         var user = {firstName:res.username, lastName:res.lastName, id:res.id}
         localStorage.setItem('user_data', JSON.stringify(user));
         setMessage('');
-        history.push('/portal');
+        window.location.href('/portal');
       }
       catch(e)
       {

@@ -50,14 +50,14 @@ const GraphPage = () => {
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
     } else {
-      var obj = {mood:graphMood.value, irritability:graphIrritability, anxiety:graphAnxiety.value, suicidal:graphSuicidal};
+      var obj = {mood:form.mood.value, irritability:form.irritability, anxiety:form.anxiety.value, suicidal:form.suicidal};
       var js = JSON.stringify(obj);
       try
       {
         const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
         setMessage('');
-        history.push('/graph');
+        window.location.href('/graph');
       }
       catch(e)
       {

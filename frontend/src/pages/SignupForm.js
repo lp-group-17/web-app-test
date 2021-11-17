@@ -54,14 +54,14 @@ const SignupForm = () => {
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
     } else {
-      var obj = {firstName:formFirstName.value, lastName:formLastName.value, username:formUsername.value, email:formEmail.value, password:formPassword.value};
+      var obj = {firstName:form.firstName.value, lastName:form.lastName.value, username:form.username.value, email:form.email.value, password:form.password.value};
       var js = JSON.stringify(obj);
       try
       {
         const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
         setMessage('');
-        history.push('/login');
+        window.location.href('/login');
       }
       catch(e)
       {
@@ -77,23 +77,32 @@ const SignupForm = () => {
       <Form.Group className="mb-3" controlId="formFirstName">
         <Form.Label>First Name</Form.Label>
         <Form.Control required type="text" placeholder="Enter First Name" onChange={ e => setField('firstName', e.target.value) } isInvalid={ !!errors.firstName }/>
+        <Form.Control.Feedback type="invalid">
+          Please do not leave blank
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formLastName">
         <Form.Label>Last Name</Form.Label>
         <Form.Control required type="text" placeholder="Enter Last Name" onChange={ e => setField('lastName', e.target.value) } isInvalid={ !!errors.lastName }/>
+        <Form.Control.Feedback type="invalid">
+          Please do not leave blank
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
+        <Form.Control.Feedback type="invalid">
+          Please do not leave blank
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
         <Form.Control.Feedback type="invalid">
-          Please provid a valid email
+          Please provide a valid email
         </Form.Control.Feedback>
       </Form.Group>
 
