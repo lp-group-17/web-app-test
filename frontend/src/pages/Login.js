@@ -5,6 +5,7 @@ import { useState } from 'react';
 // import Form from 'react-bootstrap/Form';
 import { Form } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'
+import FormControl from 'react-bootstrap/FormControl'
 
 const Login = () => {
   const [ form, setForm ] = useState({})
@@ -73,9 +74,9 @@ const Login = () => {
       <Form.Group className="mb-3" controlId="loginUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Username cannot be blank
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="loginPassword">
