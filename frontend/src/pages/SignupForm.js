@@ -5,7 +5,6 @@ import { useState } from 'react';
 // import Form from 'react-bootstrap/Form';
 import { Form } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'
-import FormControl from 'react-bootstrap/FormControl'
 
 const SignupForm = () => {
   const [ form, setForm ] = useState({})
