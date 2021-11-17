@@ -7,6 +7,7 @@ const LoginPage = () =>
       <div>
         <PageTitle />
         <Login />
+        <PageTitle />
       </div>
     );
 };
