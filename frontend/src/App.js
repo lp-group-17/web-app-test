@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
-import LoginPage from './pages/LoginPage';
-import CardPage from './pages/CardPage';
+import Login from './pages/Login';
+import SignupForm from './pages/SignupForm';
 function App() {
   return (
     <Router >
       <Switch>
         <Route path="/" exact>
-          <LoginPage />
+          <Login />
         </Route>
-        <Route path="/cards" exact>
-          <CardPage />
+        <Route path="/signup" exact>
+          <SignupForm />
         </Route>
         <Redirect to="/" />
       </Switch>
