@@ -7,7 +7,7 @@ function App() {
   return (
     <Router >
       <Switch>
-        <Route path="/" exact>
+        <Route path="http://137.184.153.148/" exact>
           <Login />
         </Route>
         <Route path="/signup" exact>
