@@ -81,9 +81,9 @@ const Login = () => {
       <Form.Group className="mb-3" controlId="loginPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Password cannot be blank
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Button variant="primary" type="submit">

@@ -77,49 +77,49 @@ const SignupForm = () => {
       <Form.Group className="mb-3" controlId="formFirstName">
         <Form.Label>First Name</Form.Label>
         <Form.Control required type="text" placeholder="Enter First Name" onChange={ e => setField('firstName', e.target.value) } isInvalid={ !!errors.firstName }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Please do not leave blank
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formLastName">
         <Form.Label>Last Name</Form.Label>
         <Form.Control required type="text" placeholder="Enter Last Name" onChange={ e => setField('lastName', e.target.value) } isInvalid={ !!errors.lastName }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Please do not leave blank
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Please do not leave blank
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Please provide a valid email
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formConfirmPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Passwords must match
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Button variant="primary" type="submit">

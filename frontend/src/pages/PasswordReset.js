@@ -69,25 +69,25 @@ const PasswordReset = () => {
       <Form.Group className="mb-3" controlId="resetTempPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Temporary Password" onChange={ e => setField('tempPassword', e.target.value) } isInvalid={ !!errors.tempPassword }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Temporary password must match one on record
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="resetPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="resetConfirmPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
-        <Form.Control.Feedback type="invalid">
+        <FormControl.Feedback type="invalid">
           Passwords must match
-        </Form.Control.Feedback>
+        </FormControl.Feedback>
       </Form.Group>
 
       <Button variant="primary" type="submit">
