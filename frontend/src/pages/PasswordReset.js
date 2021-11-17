@@ -4,7 +4,7 @@ import { Button } from 'react';
 import { useState } from 'react';
 // import Form from 'react-bootstrap/Form';
 import { Form } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 const PasswordReset = () => {
   const [ form, setForm ] = useState({})
