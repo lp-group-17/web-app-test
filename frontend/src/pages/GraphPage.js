@@ -1,11 +1,9 @@
 import React from 'react';
 import BarGraph from './components/BarGraph';
-// import Button from 'react-bootstrap/Button';
-import { Button } from 'react';
+import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-// import Form from 'react-bootstrap/Form';
-import { Form } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const GraphPage = () => {
 
