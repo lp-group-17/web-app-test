@@ -1,5 +1,5 @@
 import React from 'react';
-import BarGraph from './components/BarGraph';
+import BarGraph from '../components/BarGraph';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
