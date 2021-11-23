@@ -12,11 +12,11 @@ function App() {
           <Login />
         </Route>
         
-        <Route path="/signup" exact>
+        <Route path="/signup">
           <SignupForm />
         </Route>
         
-        <Route path="/passwordreset" exact>
+        <Route path="/passwordreset">
           <PasswordReset />
         </Route>
         <Redirect to="/" />
