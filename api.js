@@ -16,6 +16,8 @@
 //     res.status(200).json(ret);
 // });
 
+const { Timestamp } = require("bson");
+
 // app.post('/api/login', async (req, res, next) => {
 //     // incoming: login, password
 //     // outgoing: id, firstName, lastName, error
@@ -56,20 +58,20 @@
 
 exports.setApp = function ( app, client )
 {
-    app.post('/api/addcard', async (req, res, next) =>
+    app.post('/api/adduser', async (req, res, next) =>
     {
-      // incoming: userId, color
+      // incoming: id, email, name, verified, daily
       // outgoing: error
 
-      const { userId, card } = req.body;
+      const { id, email, name, verified, daily } = req.body;
 
-      const newCard = {Card:card,UserId:userId};
+      const newUser = {User:id,Email:email,Name:name,verified:false,daily:Timestamp};
       var error = '';
 
       try
       {
         const db = client.db();
-        const result = db.collection('Cards').insertOne(newCard);
+        const result = db.collection('Users').insertOne(newUser);
       }
       catch(e)
       {
@@ -82,16 +84,16 @@ exports.setApp = function ( app, client )
 
     app.post('/api/login', async (req, res, next) =>
     {
-      // incoming: login, password
-      // outgoing: id, firstName, lastName, error
+      // incoming: email, password, verified
+      // outgoing: id, name, email, error
 
      var error = '';
 
-      const { login, password } = req.body;
+      const { email, password, verified } = req.body;
 
       const db = client.db();
       const results = await
-db.collection('Users').find({Login:login,Password:password}).toArray();
+db.collection('Users').find({Email:email,Password:password,Verified:verified}).toArray();
 
       var id = -1;
       var fn = '';
@@ -99,35 +101,35 @@ db.collection('Users').find({Login:login,Password:password}).toArray();
 
       if( results.length > 0 )
       {
-        id = results[0].UserId;
-        fn = results[0].FirstName;
-        ln = results[0].LastName;
+        id = results[0].User;
+        fn = results[0].Name;
+        ln = results[0].Email;
       }
 
-      var ret = { id:id, firstName:fn, lastName:ln, error:''};
+      var ret = { User:id, Name:fn, Email:ln, error:''};
       res.status(200).json(ret);
     });
 
-    app.post('/api/searchcards', async (req, res, next) =>
+    app.post('/api/searchmedications', async (req, res, next) =>
     {
-      // incoming: userId, search
+      // incoming: id, medication
       // outgoing: results[], error
 
       var error = '';
 
-      const { userId, search } = req.body;
+      const { id, search } = req.body;
 
       var _search = search.trim();
 
       const db = client.db();
       const results = await
-db.collection('Cards').find({"Card":{$regex:_search+'.*',
+db.collection('Users').find({"medication":{$regex:_search+'.*',
 $options:'r'}}).toArray();
 
       var _ret = [];
       for( var i=0; i<results.length; i++ )
       {
-        _ret.push( results[i].Card );
+        _ret.push( results[i].medication );
       }
 
       var ret = {results:_ret, error:error};
