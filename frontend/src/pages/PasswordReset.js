@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const PasswordReset = () => {
   const [ form, setForm ] = useState({})
   const [ errors, setErrors ] = useState({})
+  const [ message, setMessage ] = useState('');
 
   const setField = (field, value) => {
     setForm({
@@ -41,7 +42,7 @@ const PasswordReset = () => {
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
     } else {
-      var obj = {password:resetPassword.value};
+      var obj = {password:form.resetPassword.value};
       var js = JSON.stringify(obj);
       try
       {
@@ -67,25 +68,25 @@ const PasswordReset = () => {
       <Form.Group className="mb-3" controlId="resetTempPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Temporary Password" onChange={ e => setField('tempPassword', e.target.value) } isInvalid={ !!errors.tempPassword }/>
-        <FormControl.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid">
           Temporary password must match one on record
-        </FormControl.Feedback>
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="resetPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <FormControl.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid">
           Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
-        </FormControl.Feedback>
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="resetConfirmPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
-        <FormControl.Feedback type="invalid">
+        <Form.Control.Feedback type="invalid">
           Passwords must match
-        </FormControl.Feedback>
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Button variant="primary" type="submit">
