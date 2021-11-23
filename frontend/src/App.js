@@ -12,11 +12,11 @@ function App() {
           <Login />
         </Route>
         
-        <Route path="/signup">
+        <Route path="http://137.184.153.148/signup" exact>
           <SignupForm />
         </Route>
         
-        <Route path="/passwordreset">
+        <Route path="http://137.184.153.148/passwordreset" exact>
           <PasswordReset />
         </Route>
         <Redirect to="/" />
