@@ -8,15 +8,15 @@ function App() {
   return (
     <Router >
       <Switch>
-        <Route path="http://137.184.153.148" exact>
+        <Route path="/" exact>
           <Login />
         </Route>
         
-        <Route path="/signup">
+        <Route path="/signup" exact>
           <SignupForm />
         </Route>
         
-        <Route path="/passwordreset">
+        <Route path="/passwordreset" exact>
           <PasswordReset />
         </Route>
         <Redirect to="/" />

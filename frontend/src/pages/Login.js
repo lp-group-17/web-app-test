@@ -66,6 +66,13 @@ const Login = () => {
 
   }
 
+  const doLogout = event => 
+    {
+      event.preventDefault();
+      localStorage.removeItem("user_data")
+      window.location.href = '/';
+    }; 
+
   return (
     <Form noValidate onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="loginUsername">

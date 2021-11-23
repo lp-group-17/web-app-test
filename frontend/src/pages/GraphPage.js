@@ -66,6 +66,13 @@ const GraphPage = () => {
 
   }
 
+  const doLogout = event => 
+    {
+      event.preventDefault();
+      localStorage.removeItem("user_data")
+      window.location.href = '/';
+    }; 
+
   return (
     <div>
       <Form noValidate onSubmit={handleSubmit}>
