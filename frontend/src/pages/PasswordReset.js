@@ -35,8 +35,8 @@ const PasswordReset = () => {
     return newErrors
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = async event => {
+    event.preventDefault()
     const newErrors = findFormErrors()
     if ( Object.keys(newErrors).length > 0 ) {
       setErrors(newErrors)
