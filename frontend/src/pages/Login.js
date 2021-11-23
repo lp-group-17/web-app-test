@@ -85,7 +85,7 @@ const Login = () => {
       </Form.Group>
 
       <Button variant="primary" type="submit">
-        Sign up
+        Login
       </Button>{' '}
 
       <p className="forgot-password text-right">
