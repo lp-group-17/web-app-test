@@ -75,6 +75,9 @@ const GraphPage = () => {
 
   return (
     <div>
+      <Button variant="danger" onClick={doLogout}>
+        Logout
+      </Button>
       <Form noValidate onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="graphMood">
           <Form.Label>Mood Level</Form.Label>
