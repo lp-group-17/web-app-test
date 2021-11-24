@@ -20,7 +20,7 @@ app.listen(PORT, () => {
 });
 
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://admin:fYC1BsmoZQI9SIUA@cluster0.mufuf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = 'mongodb+srv://admin:fYC1BsmoZQI9SIUA@cluster0.mufuf.mongodb.net/MoodTracker?retryWrites=true&w=majority';
 // const url = 'mongodb+srv://RickLeinecker:COP4331Rocks@cluster0-4pisv.mongodb.net/COP4331?retryWrites=true&w=majority'
 const client = new MongoClient(url);
 client.connect();
