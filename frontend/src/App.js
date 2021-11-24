@@ -8,15 +8,15 @@ function App() {
   return (
     <Router >
       <Switch>
-        <Route path="/" exact>
+        <Route path="/" exact component={Login}>
           <Login />
         </Route>
         
-        <Route path="/signup" exact>
+        <Route path="/signup" component={SignupForm}>
           <SignupForm />
         </Route>
         
-        <Route path="/passwordreset" exact>
+        <Route path="/passwordreset" component={PasswordReset}>
           <PasswordReset />
         </Route>
         <Redirect to="/" />
