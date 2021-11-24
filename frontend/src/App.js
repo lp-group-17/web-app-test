@@ -19,7 +19,7 @@ function App() {
         <Route path="/passwordreset" exact>
           <PasswordReset />
         </Route>
-        {/* <Redirect to="/" /> */}
+        <Redirect to="/" />
       </Switch>
     </Router>
   );
