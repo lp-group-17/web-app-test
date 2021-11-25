@@ -84,6 +84,10 @@ const Login = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
+      <Button variant="success" href="/signuppage">
+        Create Account
+      </Button>
+
       <Button variant="primary" type="submit">
         Login
       </Button>{' '}
