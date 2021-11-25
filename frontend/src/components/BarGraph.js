@@ -1,6 +1,9 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
+import Chart from 'chart.js/auto';
+import {CategoryScale} from 'chart.js';
+Chart.register(CategoryScale)
 
 class ChartsPage extends React.Component {
     state = {
@@ -9,7 +12,7 @@ class ChartsPage extends React.Component {
           datasets: [
             {
               label: "Mood level",
-              data: [1, 2, 3, 4, 5, 5],
+              data: [1, 2, 3, 4, 5, 5, 2],
               backgroundColor: [
                 "rgba(74, 250, 10, 0.4)",
                 "rgba(74, 250, 10, 0.4)",
@@ -32,7 +35,7 @@ class ChartsPage extends React.Component {
             },
             {
               label: "Irritability level",
-              data: [5, 4, 3, 2, 1, 1],
+              data: [5, 4, 3, 2, 1, 1, 1],
               backgroundColor: [
                 "rgba(250, 26, 10, 0.4)",
                 "rgba(250, 26, 10, 0.4)",
@@ -55,7 +58,7 @@ class ChartsPage extends React.Component {
             },
             {
               label: "Anxiety level",
-              data: [2, 2, 2, 2, 2, 3],
+              data: [2, 2, 2, 2, 2, 3, 2],
               backgroundColor: [
                 "rgba(10, 130, 250, 0.4)",
                 "rgba(10, 130, 250, 0.4)",
@@ -78,7 +81,7 @@ class ChartsPage extends React.Component {
             },
             {
               label: "Suicidal Inclinations",
-              data: [1, 4, 2, 5, 3, 1],
+              data: [1, 4, 2, 5, 3, 1, 5],
               backgroundColor: [
                 "rgba(250, 178, 10, 0.4)",
                 "rgba(250, 178, 10, 0.4)",
@@ -103,7 +106,7 @@ class ChartsPage extends React.Component {
         },
         barChartOptions: {
           responsive: true,
-          maintainAspectRatio: false,
+          maintainAspectRatio: true,
           scales: {
             xAxes: [
               {
@@ -134,7 +137,7 @@ class ChartsPage extends React.Component {
     return (
       <MDBContainer>
         <h3 className="mt-5">Bar chart</h3>
-        <Bar data={this.state.dataBar} options={this.state.barChartOptions} />
+        <Bar data={this.state.dataBar} options={this.state.barChartOptions}/>
       </MDBContainer>
     );
   }
