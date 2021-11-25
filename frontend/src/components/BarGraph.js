@@ -140,4 +140,4 @@ class ChartsPage extends React.Component {
   }
 }
 
-export default BarGraph;
+export default ChartsPage;

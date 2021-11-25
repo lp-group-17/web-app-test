@@ -82,33 +82,33 @@ const GraphPage = () => {
         <Form.Group className="mb-3" controlId="graphMood">
           <Form.Label>Mood Level</Form.Label>
           <Form.Control required type="number" placeholder="1-5" onChange={ e => setField('mood', e.target.value) } isInvalid={ !!errors.mood }/>
-          <FormControl.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             Must be a value between 1 and 5
-          </FormControl.Feedback>
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="graphIrritability">
           <Form.Label>Irritability Level</Form.Label>
           <Form.Control required type="number" placeholder="1-5" onChange={ e => setField('irritability', e.target.value) } isInvalid={ !!errors.irritability }/>
-          <FormControl.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             Must be a value between 1 and 5
-          </FormControl.Feedback>
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="graphAnxiety">
           <Form.Label>Anxiety Level</Form.Label>
           <Form.Control required type="number" placeholder="1-5" onChange={ e => setField('anxiety', e.target.value) } isInvalid={ !!errors.anxiety }/>
-          <FormControl.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             Must be a value between 1 and 5
-          </FormControl.Feedback>
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="graphSuicidal">
           <Form.Label>Suicidal Inclinations</Form.Label>
           <Form.Control required type="text" placeholder="mood level" onChange={ e => setField('suicidal', e.target.value) } isInvalid={ !!errors.suicidal }/>
-          <FormControl.Feedback type="invalid">
+          <Form.Control.Feedback type="invalid">
             Must be either "yes" or "no"
-          </FormControl.Feedback>
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Button variant="primary" type="submit">
