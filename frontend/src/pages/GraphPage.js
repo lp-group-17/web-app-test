@@ -1,11 +1,11 @@
 import React from 'react';
-import './GraphPage.css';
 import BarGraph from '../components/BarGraph';
+import CalendarComp from '../CalendarComp';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
+
 
 const GraphPage = () => {
 
@@ -117,8 +117,9 @@ const GraphPage = () => {
           This is how I feel
         </Button>{' '}
       </Form>
+      <CalendarComp />
       <BarGraph />
-      <CalendarComponent></CalendarComponent>
+      
     </div>
   );
 }
