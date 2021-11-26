@@ -55,6 +55,9 @@ const { Timestamp } = require("bson");
 //     var ret = { results: _ret, error: error };
 //     res.status(200).json(ret);
 // });
+const Post = require('models/Post');
+const express = require('express');
+const router = express.Router();
 
 exports.setApp = function ( app, client )
 {
