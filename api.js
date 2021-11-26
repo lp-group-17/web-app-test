@@ -60,12 +60,12 @@ exports.setApp = function ( app, client )
 {
     app.post('/api/adduser', async (req, res, next) =>
     {
-      // incoming: id, email, name, verified, daily
+      // incoming: id, firstname, lastname, email, username
       // outgoing: error
 
-      const { id, email, name, verified, daily } = req.body;
+      const { id, firstname, lastname, username, email} = req.body;
 
-      const newUser = {User:id,Email:email,Name:name,verified:false,daily:Timestamp};
+      const newUser = {User:id,Firstname:firstname,Lastname:lastname,Email:email,Username:username};
       var error = '';
 
       try
