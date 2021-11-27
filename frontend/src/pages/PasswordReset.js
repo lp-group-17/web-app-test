@@ -49,6 +49,7 @@ const PasswordReset = () => {
         const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
 
+        // CONSIDER CHANGING WHAT THIS IS SAVING
         var user = {firstName:res.username, lastName:res.lastName, id:res.id}
         localStorage.setItem('user_data', JSON.stringify(user));
         setMessage('');
