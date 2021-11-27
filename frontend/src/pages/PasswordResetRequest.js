@@ -59,7 +59,7 @@ const PasswordResetRequest = () => {
     return (
       <Form noValidate onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Please provide an email address to receive an email</Form.Label>
           <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
           <Form.Control.Feedback type="invalid">
             Please provide a valid email
@@ -67,7 +67,7 @@ const PasswordResetRequest = () => {
         </Form.Group>
   
         <Button variant="primary" type="submit">
-          Sign up
+          Send Email
         </Button>{' '}
       </Form>
     );

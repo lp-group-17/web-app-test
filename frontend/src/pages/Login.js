@@ -93,7 +93,7 @@ const Login = () => {
       </Button>{' '}
 
       <p className="forgot-password text-right">
-        Forgot <a href='/passwordreset'>password?</a>
+        Forgot <a href='/passwordresetrequest'>password?</a>
       </p>
     </Form>
   );
