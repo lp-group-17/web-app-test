@@ -55,17 +55,20 @@ const { Timestamp } = require("bson");
 //     var ret = { results: _ret, error: error };
 //     res.status(200).json(ret);
 // });
+const Post = require('models/Post');
+const express = require('express');
+const router = express.Router();
 
 exports.setApp = function ( app, client )
 {
     app.post('/api/adduser', async (req, res, next) =>
     {
-      // incoming: id, email, name, verified, daily
+      // incoming: id, firstname, lastname, email, username
       // outgoing: error
 
-      const { id, email, name, verified, daily } = req.body;
+      const { id, firstname, lastname, username, email} = req.body;
 
-      const newUser = {User:id,Email:email,Name:name,verified:false,daily:Timestamp};
+      const newUser = {User:id,Firstname:firstname,Lastname:lastname,Email:email,Username:username};
       var error = '';
 
       try
