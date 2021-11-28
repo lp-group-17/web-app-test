@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import logo from './logo.png';
 
 const SignupForm = () => {
   const [ form, setForm ] = useState({})
@@ -71,59 +72,85 @@ const SignupForm = () => {
   }
 
   return (
+  <div class="wrapper">
+    <div class="center spacer-large">
+      <img src={logo} width="256"/>
+    </div>
+    <div class="center">
+      <h2 class="gradient">
+        MOOD TRACKER
+      </h2>
+    </div>
     <Form noValidate onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formFirstName">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control required type="text" placeholder="Enter First Name" onChange={ e => setField('firstName', e.target.value) } isInvalid={ !!errors.firstName }/>
-        <Form.Control.Feedback type="invalid">
-          Please do not leave blank
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="wrapper center">
+        <div class="text-name-first">
+          <Form.Group className="mb-3" controlId="formFirstName">
+            <Form.Label class="text">First Name</Form.Label>
+            <Form.Control required type="text" placeholder="Enter First Name" onChange={ e => setField('firstName', e.target.value) } isInvalid={ !!errors.firstName }/>
+            {/* <FormControl.Feedback type="invalid">
+              Please do not leave blank
+            </FormControl.Feedback> */}
+          </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="formLastName">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Last Name" onChange={ e => setField('lastName', e.target.value) } isInvalid={ !!errors.lastName }/>
-        <Form.Control.Feedback type="invalid">
-          Please do not leave blank
-        </Form.Control.Feedback>
-      </Form.Group>
+        <div class="text-name-last spacer-left">
+          <Form.Group className="mb-3" controlId="formLastName">
+            <Form.Label class="text">Last Name</Form.Label>
+            <Form.Control required type="text" placeholder="Enter Last Name" onChange={ e => setField('lastName', e.target.value) } isInvalid={ !!errors.lastName }/>
+            {/* <FormControl.Feedback type="invalid">
+              Please do not leave blank
+            </FormControl.Feedback> */}
+          </Form.Group>
+        </div>
+      </div>
+      
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="formUsername">
+          <Form.Label class="text">Username</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
+          {/* <FormControl.Feedback type="invalid">
+            Please do not leave blank
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="formUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-        <Form.Control.Feedback type="invalid">
-          Please do not leave blank
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Label class="text">Email address</Form.Label>
+          <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
+          {/* <FormControl.Feedback type="invalid">
+            Please provide a valid email
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="formEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
-        <Form.Control.Feedback type="invalid">
-          Please provide a valid email
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label class="text">Password</Form.Label>
+          <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
+          {/* <FormControl.Feedback type="invalid">
+            Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="formPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
-          Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="formConfirmPassword">
+          <Form.Label class="text">Confirm Password</Form.Label>
+          <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
+          {/* <FormControl.Feedback type="invalid">
+            Passwords must match
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="formConfirmPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
-        <Form.Control.Feedback type="invalid">
-          Passwords must match
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Sign up
-      </Button>{' '}
+      <div class="center">
+        <Button variant="primary" type="submit">
+          Sign up
+        </Button>{' '}
+      </div>
     </Form>
+  </div>
   );
 }
 
