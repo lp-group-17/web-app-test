@@ -1,10 +1,88 @@
 body {
+	background: linear-gradient(rgb(103,58,183), rgb(63,81,181));
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	min-height: 100%;
+}
+
+div {
+	margin:auto;
+}
+
+#wrapper{
+	display:flex;
+	text-align:center;
+	align-items:center;
+	justify-content:center;
+	width:450px;
+	
+}
+
+.gradient {
+	margin-top:2%;
+	background: linear-gradient(to right, #4CAF50 0%, #FFEB3B 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-text-fill-color: transparent;
+	display:inline-block;
+}
+
+.center {
+
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:380px;
+}
+
+.textBox {
+	width: 380px;
+	position:relative;
+}
+
+.text-name-last {
+	display:inline-block;
+	width: 185px;
+	position:relative;
+}
+
+.text-name-first {
+	display:inline-block;
+	width: 185px;
+	position:relative;
+}
+
+.text-right {
+	float:right;
+}
+
+.text {
+	color:#FFF;
+
+}
+.spacer-large {
+	margin-top:5%;
+}
+
+.spacer-small {
+	margin-top:1%;
+}
+
+.spacer-left {
+	margin-left:10px;
+}
+
+.login {
+	right:5px;
 }
 
 code {

@@ -2,7 +2,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './logo.png';
 
 const PasswordReset = () => {
   const [ form, setForm ] = useState({})
@@ -49,6 +50,7 @@ const PasswordReset = () => {
         const response = await fetch('http://137.184.153.148/', {method:'POST', body:js, header:{'Content-Type':'application/json'}});
         var res = JSON.parse(await response.text());
 
+        // CONSIDER CHANGING WHAT THIS IS SAVING
         var user = {firstName:res.username, lastName:res.lastName, id:res.id}
         localStorage.setItem('user_data', JSON.stringify(user));
         setMessage('');
@@ -64,35 +66,56 @@ const PasswordReset = () => {
   }
 
   return (
+  <div class="wrapper">
+  <div class="center spacer-large">
+    <img src={logo} width="256"/>
+  </div>
+  <div class="center">
+    <h2 class="gradient">
+      PASSWORD RESET
+    </h2>
+ </div>
     <Form noValidate onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="resetTempPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Temporary Password" onChange={ e => setField('tempPassword', e.target.value) } isInvalid={ !!errors.tempPassword }/>
-        <Form.Control.Feedback type="invalid">
-          Temporary password must match one on record
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="wrapper">
+        <div class="textBox">
+        <Form.Group className="mb-3" controlId="resetTempPassword">
+          <Form.Label class="text">Old Password</Form.Label>
+          <Form.Control required type="password" placeholder="Old Password" onChange={ e => setField('tempPassword', e.target.value) } isInvalid={ !!errors.tempPassword }/>
+          <Form.Control.Feedback type="invalid">
+            Temporary password must match one on record
+          </Form.Control.Feedback>
+        </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="resetPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
-          Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
-        </Form.Control.Feedback>
-      </Form.Group>
+        <div class="textBox">
+        <Form.Group className="mb-3" controlId="resetPassword">
+          <Form.Label class="text">New Password</Form.Label>
+          <Form.Control required type="password" placeholder="Enter New Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
+          <Form.Control.Feedback type="invalid">
+            Password must be at least 8 characters and contain at least one lowercase, capital, number and symbol
+          </Form.Control.Feedback>
+        </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="resetConfirmPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
-        <Form.Control.Feedback type="invalid">
-          Passwords must match
-        </Form.Control.Feedback>
-      </Form.Group>
+        <div class="textBox">
+        <Form.Group className="mb-3" controlId="resetConfirmPassword">
+          <Form.Label class="text">Confirm New Password</Form.Label>
+          <Form.Control required type="password" placeholder="Confirm Password" onChange={ e => setField('confirmPassword', e.target.value) } isInvalid={ !!errors.confirmPassword }/>
+          <Form.Control.Feedback type="invalid">
+            Passwords must match
+          </Form.Control.Feedback>
+        </Form.Group>
+        </div>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>{' '}
+        <div class="center spacer-small">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>{' '}
+        </div>
+      </div>
     </Form>
+
+  </div>
   );
 }
 

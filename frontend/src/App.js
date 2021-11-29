@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import SignupForm from './pages/SignupForm';
 import PasswordReset from './pages/PasswordReset';
 import GraphPage from './pages/GraphPage';
+import PasswordResetRequest from './pages/PasswordResetRequest';
 function App() {
   return (
     <Router>
@@ -16,7 +17,9 @@ function App() {
         <Route path="/signup" component={SignupForm} />
           {/* <SignupForm />
         </Route> */}
-        0
+        
+        <Route path="/passwordresetrequest" component={PasswordResetRequest} />
+
         <Route path="/passwordreset" component={PasswordReset} />
           {/* <PasswordReset />
         </Route> */}

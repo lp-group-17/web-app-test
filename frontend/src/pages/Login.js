@@ -2,7 +2,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './logo.png';
 
 const Login = () => {
   const [ form, setForm ] = useState({})
@@ -66,37 +67,55 @@ const Login = () => {
 
   }
 
-  return (
+  return (  
+  <div class="wrapper">
+    <div class="center spacer-large">
+      <img src={logo} width="256"/>
+    </div>
+    <div class="center">
+      <h2 class="gradient">
+        MOOD TRACKER
+      </h2>
+    </div>
     <Form noValidate onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="loginUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-        <Form.Control.Feedback type="invalid">
-          Username cannot be blank
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="loginUsername">
+          <Form.Label class="text">Username</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
+          {/* <FormControl.Feedback type="invalid">
+            Username cannot be blank
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="loginPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-        <Form.Control.Feedback type="invalid">
-          Password cannot be blank
-        </Form.Control.Feedback>
-      </Form.Group>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="loginPassword" class="textBox">
+          <Form.Label class="text">Password</Form.Label>
+          <div className="forgot-password text-right text">
+            Forgot <a href='/PasswordReset'>password?</a>
+          </div>
+          <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
+          {/* <FormControl.Feedback type="invalid">
+            Password cannot be blank
+          </FormControl.Feedback> */}
+          
+        </Form.Group>
+      </div>
 
-      <Button variant="success" href="/signup">
-        Create Account
-      </Button>
+      <div class="center spacer-small">  
+        <Button variant="primary" type="submit">
+          Log in
+        </Button>{' '}
+      </div>
 
-      <Button variant="primary" type="submit">
-        Login
-      </Button>{' '}
-
-      <p className="forgot-password text-right">
-        Forgot <a href='/passwordreset'>password?</a>
-      </p>
+      <div class="center spacer-small">
+        <Button variant="success" href="/signup">
+          Create Account
+        </Button>
+      </div>
+      
     </Form>
-  );
+  </div>);
 }
 
 export default Login;
