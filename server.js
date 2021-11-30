@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 const postsRoute = require('./routes/posts');
 
 app.use('/posts', postsRoute);
+app.use(express.static('frontend/build'));
 
 // Routes
 app.get('/', (req, res) => {
@@ -30,4 +31,4 @@ mongoose.connect(process.env.DB_CONNECTION,
 );
 
 // Listen to the server
-app.listen(3000);
+app.listen(5000);
