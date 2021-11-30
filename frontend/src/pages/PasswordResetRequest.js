@@ -71,7 +71,10 @@ const PasswordResetRequest = () => {
       <div class="wrapper">
         <div class="textBox">
           <Form.Group className="mb-3" controlId="formEmail">
-            <Form.Label class="text">Please provide an email address to receive an email</Form.Label>
+            <Form.Label class="text">
+                      "Enter your email address below and\n"
+                      "we'll send you an email with instructions\n"
+                      "to reset your password"</Form.Label>
             <Form.Control required type="email" placeholder="Enter email" onChange={ e => setField('email', e.target.value) } isInvalid={ !!errors.email }/>
             <Form.Control.Feedback type="invalid">
               Please provide a valid email
