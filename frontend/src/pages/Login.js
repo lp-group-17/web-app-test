@@ -92,7 +92,7 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="loginPassword" class="textBox">
           <Form.Label class="text">Password</Form.Label>
           <div className="forgot-password text-right text">
-            Forgot <a href='/PasswordReset'>password?</a>
+            Forgot <a href='/passwordresetrequest'>password?</a>
           </div>
           <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
           {/* <FormControl.Feedback type="invalid">
