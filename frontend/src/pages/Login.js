@@ -77,45 +77,39 @@ const Login = () => {
         MOOD TRACKER
       </h2>
     </div>
-    <Form noValidate onSubmit={handleSubmit}>
-      <div class="textBox">
-        <Form.Group className="mb-3" controlId="loginUsername">
-          <Form.Label class="text">Username</Form.Label>
-          <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
-          {/* <FormControl.Feedback type="invalid">
-            Username cannot be blank
-          </FormControl.Feedback> */}
-        </Form.Group>
-      </div>
+    <div class="center small-spacer">
+      <h3 class="reverse-gradient">
+        ABOUT US
+      </h3>
+    </div>
+    
 
-      <div class="textBox">
-        <Form.Group className="mb-3" controlId="loginPassword" class="textBox">
-          <Form.Label class="text">Password</Form.Label>
-          <div className="forgot-password text-right text">
-            Forgot <a href='/passwordresetrequest'>password?</a>
-          </div>
-          <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
-          {/* <FormControl.Feedback type="invalid">
-            Password cannot be blank
-          </FormControl.Feedback> */}
-          
-        </Form.Group>
-      </div>
 
-      <div class="center spacer-small">  
-        <Button variant="primary" type="submit">
-          Log in
-        </Button>{' '}
-      </div>
 
-      <div class="center spacer-small">
-        <Button variant="success" href="/signup">
-          Create Account
-        </Button>
-      </div>
-      
-    </Form>
-  </div>);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  );
 }
 
 export default Login;

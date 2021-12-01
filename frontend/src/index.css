@@ -36,12 +36,31 @@ div {
 	display:inline-block;
 }
 
+.reverse-gradient {
+	margin-top:2%;
+	background: linear-gradient(to right, #FFEB3B 0%, #4CAF50 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-text-fill-color: transparent;
+	display:inline-block;
+}
+
 .center {
 
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	width:380px;
+	width: 380px;
+}
+
+.fat-center {
+
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
 }
 
 .textBox {
@@ -85,6 +104,29 @@ div {
 	right:5px;
 }
 
+.boxed {
+	border: 1px solid #9bf1b8;
+	background-color: #9bf1b8;
+}
+
+.left-block {
+	display: inline-block;
+	width: 500px;
+	margin-right: 30%;
+	margin-left: 5%;
+}
+
+.center-block {
+	display: inline-block;
+	width: 500px;
+	margin-right: 30%;
+}
+
+.right-block {
+	display: inline-block;
+	width: 30%;
+	margin-right: 5%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

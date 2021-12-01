@@ -79,10 +79,50 @@ const GraphPage = () => {
   return (
     
     <div>
-      
       <Button variant="danger" onClick={doLogout}>
         Logout
       </Button>
+      <div>
+        
+      </div>
+      <Form noValidate onSubmit={handleSubmit}>
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="loginUsername">
+          <Form.Label class="text">Username</Form.Label>
+          <Form.Control required type="text" placeholder="Enter Username" onChange={ e => setField('username', e.target.value) } isInvalid={ !!errors.username }/>
+          {/* <FormControl.Feedback type="invalid">
+            Username cannot be blank
+          </FormControl.Feedback> */}
+        </Form.Group>
+      </div>
+
+      <div class="textBox">
+        <Form.Group className="mb-3" controlId="loginPassword" class="textBox">
+          <Form.Label class="text">Password</Form.Label>
+          <div className="forgot-password text-right text">
+            Forgot <a href='/passwordresetrequest'>password?</a>
+          </div>
+          <Form.Control required type="password" placeholder="Password" onChange={ e => setField('password', e.target.value) } isInvalid={ !!errors.password }/>
+          {/* <FormControl.Feedback type="invalid">
+            Password cannot be blank
+          </FormControl.Feedback> */}
+          
+        </Form.Group>
+      </div>
+
+      <div class="center spacer-small">  
+        <Button variant="primary" type="submit">
+          Log in
+        </Button>{' '}
+      </div>
+
+      <div class="center spacer-small">
+        <Button variant="success" href="/signup">
+          Create Account
+        </Button>
+      </div>
+      
+    </Form>
       <Form noValidate onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="graphMood">
           <Form.Label>Mood Level</Form.Label>
@@ -120,7 +160,7 @@ const GraphPage = () => {
           This is how I feel
         </Button>{' '}
       </Form>
-      <CalendarComp />
+      {/* <CalendarComp /> */}
       <BarGraph />
       
     </div>
