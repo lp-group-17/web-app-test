@@ -1,9 +1,6 @@
-const { ObjectId } = require('bson');
-const mongoose = require ('mongoose');
-
+const mongoose = require('mongoose');
+//const { ObjectId } = require('bson');
 const PostSchema = mongoose.Schema({
-
-    _id: ObjectId,
 
     firstname: {
         type: String,
@@ -22,12 +19,18 @@ const PostSchema = mongoose.Schema({
         required: true
     },
     daily: {
-        "mood": int,
-        "irritability": int,
-        "anxiety": int,
+        "mood": {
+            type: Number,
+        },
+        "irritability": {
+            type: Number,
+        },
+        "anxiety": {
+            type: Number,
+        },
         "suicidal": Boolean,
         "medication": {
-            name: {
+            "name": {
                 "start": Date,
                 "dosage": String,
                 "changes": String,
