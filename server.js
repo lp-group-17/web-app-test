@@ -1,38 +1,32 @@
-// Top two lines added to decode line to connect to db
-global.TextEncoder = require("util").TextEncoder;
-global.TextDecoder = require("util").TextDecoder;
-
-const express = require ('express');
-const app = express();
-const mongoose = require('mongoose');
+const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv/config');
-
-// Middlewares
+const cors = require('cors');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
+const app = express();
+app.set('port', (process.env.PORT || 5000));
+app.use(cors());
 app.use(bodyParser.json());
-
-// use middleware to check for auth
-
-// Import routes
-const postsRoute = require('./routes/posts');
-
-app.use('/posts', postsRoute);
-
-app.use(express.static('frontend/build'));
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+// Server static assets if in production
+// if (process.env.NODE_ENV === 'production') {
+//     // Set static folder
+    app.use(express.static('frontend/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    });
+// }
+app.listen(PORT, () => {
+    console.log('Server listening on port ' + PORT);
 });
 
-// Routes
-app.get('/', (req, res) => {
-    res.send('on home');
-});
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb+srv://admin:fYC1BsmoZQI9SIUA@cluster0.mufuf.mongodb.net/MoodTracker?retryWrites=true&w=majority';
+// const url = 'mongodb+srv://RickLeinecker:COP4331Rocks@cluster0-4pisv.mongodb.net/COP4331?retryWrites=true&w=majority'
+const client = new MongoClient(url);
+client.connect();
 
-// Connect to db
-mongoose.connect(process.env.DB_CONNECTION,
-{useNewUrlParser: true},
-() => console.log('connected to db')
-);
+var api = require('./api.js');
+api.setApp( app, client );
 
-// Listen to the server
-app.listen(5000);
+// var firebase = require('firebase');
+// var firebaseui = require('firebaseui');
