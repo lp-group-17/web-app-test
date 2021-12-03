@@ -2,8 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
+import rashaad from './suzuranisourlight.jpg';
+import mobileOne from './mobile1 (1).png';
+import mobileTwo from './mobile2 (1).png';
+import mobileThree from './mobile3 (1).png';
 
 const Login = () => {
   const [ form, setForm ] = useState({})
@@ -69,7 +75,7 @@ const Login = () => {
 
   return (  
   <div class="wrapper">
-    <div class="center spacer-large">
+    <div class="center spacer-small">
       <img src={logo} width="256"/>
     </div>
     <div class="center">
@@ -77,12 +83,121 @@ const Login = () => {
         MOOD TRACKER
       </h2>
     </div>
+    <div class="bigger-center">
+    <Carousel fade variant="dark">
+      <Carousel.Item>
+        <img
+          className="h-auto w-auto"
+          src={mobileOne}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="h-auto w-auto"
+          src={mobileTwo}
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="h-auto w-auto"
+          src={mobileThree}
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+    </div>
+    <div class="spacer-small"></div>
     <div class="center small-spacer">
-      <h3 class="reverse-gradient">
+      <h3 class="gradient">
         ABOUT US
       </h3>
     </div>
-    
+    <div class="center spacer-small"></div>
+    <div class="center wide-box">
+      <h3 class="vertical-gradient-boxed rounded change-font">
+        We are the members of COP4331C Group 17 and this is our React project, our own Mood Tracker application.
+        This web application serves as a portal to introduce the members of our group while additionally
+        containing resources for those in need of immediate mental help.
+      </h3>
+    </div>
+    <div class="center spacer-small"></div>
+    <div class="fat-center">
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    </div>
+    <div class="center spacer-large"></div>
+    <div class="spacer-small"></div>
+    <div class="fat-center">
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    <Card border="secondary" style={{ width: '18rem' }}>
+      <Card.Img cariant="top" src={rashaad} />
+      <Card.Body>
+        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Text>
+          Project Manager and Database
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    </div>
+    <div class="spacer-large"></div>
 
 
 

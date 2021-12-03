@@ -36,6 +36,17 @@ div {
 	display:inline-block;
 }
 
+.vertical-gradient {
+	margin-top:2%;
+	background: linear-gradient(to bottom, #4CAF50 0%, #FFEB3B 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-text-fill-color: transparent;
+	display:inline-block;
+}
+
 .reverse-gradient {
 	margin-top:2%;
 	background: linear-gradient(to right, #FFEB3B 0%, #4CAF50 100%);
@@ -48,11 +59,18 @@ div {
 }
 
 .center {
-
 	display:flex;
 	justify-content:center;
 	align-items:center;
 	width: 380px;
+}
+
+.bigger-center {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 360px;
+	height: 600px;
 }
 
 .fat-center {
@@ -106,28 +124,59 @@ div {
 }
 
 .boxed {
-	border: 1px solid #9bf1b8;
-	background-color: #9bf1b8;
+	border: linear-gradient(rgb(103,58,183), rgb(63,81,181));
+	background: linear-gradient(to right, #4CAF50 0%, #FFEB3B 100%);
+	padding: 5px;
+	text-align: center;
+}
+
+.boxed-with-gradient-border {
+	border-width: 5px;
+	border: linear-gradient(to bottom, rgb(103,58,183), rgb(63,81,181));
+	border: linear-gradient(to right,  #4CAF50 0%, #FFEB3B 100%);
+	background: linear-gradient(to right, #4CAF50 0%, #FFEB3B 100%);
+	padding: 5px;
+	text-align: center;
+}
+
+.vertical-gradient-boxed {
+	border: linear-gradient(rgb(103,58,183), rgb(63,81,181));
+	background: linear-gradient(to bottom, #ffffff 0%, #4CAF50 100%);
+	padding: 5px;
+	text-align: center;
 }
 
 .left-block {
 	display: inline-block;
-	width: 500px;
-	margin-right: 30%;
+	width: 40%;
+	margin-right: 20%;
 	margin-left: 5%;
 }
 
 .center-block {
 	display: inline-block;
-	width: 500px;
-	margin-right: 30%;
+	width: 40%;
+	margin-right: 20%;
 }
 
 .right-block {
 	display: inline-block;
-	width: 30%;
+	width: 40%;
 	margin-right: 5%;
 }
+
+.wide-box {
+	width: 71%;
+}
+
+.rounded {
+	border-radius: 25px;
+}
+
+.change-font {
+	font-family: "Arial";
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
