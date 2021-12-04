@@ -7,7 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
-import rashaad from './SuzuranIsOurLight.jpg';
+import rashaad from './suzuranisourlight.jpg';
 import Che from './CartoonNetwork.jpg';
 import Ryan from './MaceWindont.jpg';
 import Jared from './DokutahOnZeroSanity.jpg';
