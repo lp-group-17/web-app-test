@@ -11,7 +11,6 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
-
         <Route path="/resources" component={Resources}/>
       </Switch>
     </Router>

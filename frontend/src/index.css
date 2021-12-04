@@ -73,6 +73,18 @@ div {
 	height: 600px;
 }
 
+.even-bigger-center {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 400px;
+	height: 600px;
+}
+
+.gray-background {
+	background: rgb(59, 65, 65);
+}
+
 .fat-center {
 
 	display:flex;

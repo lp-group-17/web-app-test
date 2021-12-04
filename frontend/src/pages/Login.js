@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
 import rashaad from './suzuranisourlight.jpg';
@@ -75,6 +76,18 @@ const Login = () => {
 
   return (  
   <div class="wrapper">
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+          <Navbar.Brand className='w-10'>Mood Tracker</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="w-100">
+              <Nav.Link href="/">About Us</Nav.Link>
+              <Nav.Link href="/resources">Resources</Nav.Link>
+          </Nav>
+          </Navbar.Collapse>
+      </Container>
+    </Navbar>
     <div class="center spacer-small">
       <img src={logo} width="256"/>
     </div>
@@ -83,6 +96,7 @@ const Login = () => {
         MOOD TRACKER
       </h2>
     </div>
+    <div class="even-bigger-center gray-background">
     <div class="bigger-center">
     <Carousel fade variant="dark">
       <Carousel.Item>
@@ -92,8 +106,8 @@ const Login = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h2>Mood Tracker companion app</h2>
+          <p></p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -104,8 +118,8 @@ const Login = () => {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Scheduling support</h3>
+          <p>Quickly plan counseling and support meetings</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -116,11 +130,12 @@ const Login = () => {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h3>Record mood data</h3>
+          <p>Easily list and track mood statistics</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
     </div>
     <div class="spacer-small"></div>
     <div class="center small-spacer">
