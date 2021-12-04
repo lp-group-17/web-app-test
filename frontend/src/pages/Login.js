@@ -99,7 +99,7 @@ const Login = () => {
         MOOD TRACKER
       </h2>
     </div>
-    <div class="even-bigger-center gray-background">
+    <div class="fat-center gray-background">
     <div class="bigger-center">
     <Carousel fade variant="dark">
       <Carousel.Item>
@@ -189,7 +189,7 @@ const Login = () => {
     <div class="fat-center">
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={Jared} />
-      <Card.Body>
+      <Card.Body>Y
         <Card.Title>Jared Miller</Card.Title>
         <Card.Text>
           Web Application
