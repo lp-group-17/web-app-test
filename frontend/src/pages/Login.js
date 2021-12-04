@@ -7,7 +7,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
-import rashaad from './suzuranisourlight.jpg';
+import rashaad from './SuzuranIsOurLight.jpg';
+import Che from './CartoonNetwork.jpg';
+import Ryan from './MaceWindont.jpg';
+import Jared from './DokutahOnZeroSanity.jpg';
 import mobileOne from './mobile1 (1).png';
 import mobileTwo from './mobile2 (1).png';
 import mobileThree from './mobile3 (1).png';
@@ -165,18 +168,18 @@ const Login = () => {
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={rashaad} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title>Kristin Crist</Card.Title>
         <Card.Text>
-          Project Manager and Database
+          API and Database
         </Card.Text>
       </Card.Body>
     </Card>
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={rashaad} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title>Nick Zdravkovic</Card.Title>
         <Card.Text>
-          Project Manager and Database
+          API and Web Application
         </Card.Text>
       </Card.Body>
     </Card>
@@ -185,29 +188,29 @@ const Login = () => {
     <div class="spacer-small"></div>
     <div class="fat-center">
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Jared} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title>Jared Miller</Card.Title>
         <Card.Text>
-          Project Manager and Database
+          Web Application
         </Card.Text>
       </Card.Body>
     </Card>
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Ryan} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title>Ryan Bugge</Card.Title>
         <Card.Text>
-          Project Manager and Database
+          Mobile Application
         </Card.Text>
       </Card.Body>
     </Card>
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Che} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title>Che' Baptiste</Card.Title>
         <Card.Text>
-          Project Manager and Database
+        Mobile Application
         </Card.Text>
       </Card.Body>
     </Card>
