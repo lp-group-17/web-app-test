@@ -148,11 +148,9 @@ exports.setApp = function (app, client) {
   });
 
   app.post('/api/addEvent', async (req, res, next) => {
-    let newEvent = req.body;
-
-    const db = client.db();
+    let error = '';
     try {
-      db.collection('Events').insertOne(newEvent);
+      client.db().collection('Events').insertOne(req.body);
     } catch (err) {
       error = err.toString();
     }
@@ -160,8 +158,17 @@ exports.setApp = function (app, client) {
     res.status(200).json({ error: error });
   });
 
-  app.post('/api/searchEvents', async (req, res, next) => {
+  app.post('/api/getEvents', async (req, res, next) => {
+    let error = '';
+    let {User} = req.body;
+    let events = {};
+    try {
+      events = await client.db().collection('Events').find({User: User}).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
 
+    res.status(200).json({ Events: events, error: error });
   });
 
   app.post('/api/searchmedications', async (req, res, next) => {
