@@ -64,10 +64,10 @@ exports.setApp = function (app, client) {
     // incoming: id, firstname, lastname, email, username
     // outgoing: error
 
-    const { firstname, lastname, username, email } = req.body;
+    const { firstname, lastname, username, email, password } = req.body;
 
-    const newUser = { Firstname: firstname, Lastname: lastname, Email: email, Username: username };
-    var error = '';
+    const newUser = { Firstname: firstname, Lastname: lastname, Email: email, Username: username, Password: password, Verified: false };
+    var error = {};
     let ret;
     let result;
     let existingUser;
@@ -82,13 +82,16 @@ exports.setApp = function (app, client) {
     }
 
     if (existingEmail.length > 0) {
-      error = 'Email already in use';
-      ret = { error: error };
-    } else if (existingUsername.length > 0) {
-      error = 'Username already in use';
+      error.emailUsed = 'Email already in use';
       ret = { error: error };
     }
-    else {
+
+    if (existingUsername.length > 0) {
+      error.usernameTaken = 'Username taken';
+      ret = { error: error };
+    }
+
+    if (existingUsername.length == 0 && existingEmail.length == 0) {
       try {
         const db = client.db();
         result = await db.collection('Users').insertOne(newUser);
@@ -96,7 +99,8 @@ exports.setApp = function (app, client) {
       catch (e) {
         error = e.toString();
       }
-      ret = {ID: result.insertedId, error: error};
+      error = '';
+      ret = { ID: result.insertedId, error: error };
     }
     res.status(200).json(ret);
   });
@@ -107,23 +111,33 @@ exports.setApp = function (app, client) {
 
     var error = '';
 
-    const { email, password, verified } = req.body;
+    const { loginID, password } = req.body;
 
     const db = client.db();
     const results = await
-      db.collection('Users').find({ Email: email, Password: password, Verified: verified }).toArray();
+      db.collection('Users').find(
+        {
+          $and: [
+            {
+              $or: [
+                { Email: loginID },
+                { Username: loginID }
+              ]
+            },
+            { Password: password }
+          ]
+        }
+      ).toArray();
 
-    var id = -1;
-    var fn = '';
-    var ln = '';
+    let response = {};
 
     if (results.length > 0) {
-      id = results[0].User;
-      fn = results[0].Name;
-      ln = results[0].Email;
-    }
+      response = results[0];
+      delete response.Password;
+    } else
+      error = 'User not found';
 
-    var ret = { User: id, Name: fn, Email: ln, error: '' };
+    var ret = { User: response, error: '' };
     res.status(200).json(ret);
   });
 
