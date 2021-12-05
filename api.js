@@ -59,84 +59,100 @@ const { Timestamp } = require("bson");
 const express = require('express');
 const router = express.Router();
 
-exports.setApp = function ( app, client )
-{
-    app.post('/api/adduser', async (req, res, next) =>
-    {
-      // incoming: id, firstname, lastname, email, username
-      // outgoing: error
+exports.setApp = function (app, client) {
+  app.post('/api/adduser', async (req, res, next) => {
+    // incoming: id, firstname, lastname, email, username
+    // outgoing: error
 
-      const { id, firstname, lastname, username, email} = req.body;
+    const { firstname, lastname, username, email } = req.body;
 
-      const newUser = {User:id,Firstname:firstname,Lastname:lastname,Email:email,Username:username};
-      var error = '';
+    const newUser = { Firstname: firstname, Lastname: lastname, Email: email, Username: username };
+    var error = '';
+    let ret;
+    let result;
+    let existingUser;
 
-      try
-      {
+    // Check if user already exists
+    try {
+      const db = client.db();
+      existingEmail = await db.collection('Users').find({ Email: email }).toArray();
+      existingUsername = await db.collection('Users').find({ Username: username }).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
+
+    if (existingEmail.length > 0) {
+      error = 'Email already in use';
+      ret = { error: error };
+    } else if (existingUsername.length > 0) {
+      error = 'Username already in use';
+      ret = { error: error };
+    }
+    else {
+      try {
         const db = client.db();
-        const result = db.collection('Users').insertOne(newUser);
+        result = await db.collection('Users').insertOne(newUser);
       }
-      catch(e)
-      {
+      catch (e) {
         error = e.toString();
       }
+      ret = {ID: result.insertedId, error: error};
+    }
+    res.status(200).json(ret);
+  });
 
-      var ret = { error: error };
-      res.status(200).json(ret);
-    });
+  app.post('/api/login', async (req, res, next) => {
+    // incoming: email, password, verified
+    // outgoing: id, name, email, error
 
-    app.post('/api/login', async (req, res, next) =>
-    {
-      // incoming: email, password, verified
-      // outgoing: id, name, email, error
+    var error = '';
 
-     var error = '';
+    const { email, password, verified } = req.body;
 
-      const { email, password, verified } = req.body;
+    const db = client.db();
+    const results = await
+      db.collection('Users').find({ Email: email, Password: password, Verified: verified }).toArray();
 
-      const db = client.db();
-      const results = await
-db.collection('Users').find({Email:email,Password:password,Verified:verified}).toArray();
+    var id = -1;
+    var fn = '';
+    var ln = '';
 
-      var id = -1;
-      var fn = '';
-      var ln = '';
+    if (results.length > 0) {
+      id = results[0].User;
+      fn = results[0].Name;
+      ln = results[0].Email;
+    }
 
-      if( results.length > 0 )
-      {
-        id = results[0].User;
-        fn = results[0].Name;
-        ln = results[0].Email;
-      }
+    var ret = { User: id, Name: fn, Email: ln, error: '' };
+    res.status(200).json(ret);
+  });
 
-      var ret = { User:id, Name:fn, Email:ln, error:''};
-      res.status(200).json(ret);
-    });
+  app.post('/api/searchmedications', async (req, res, next) => {
+    // incoming: id, medication
+    // outgoing: results[], error
 
-    app.post('/api/searchmedications', async (req, res, next) =>
-    {
-      // incoming: id, medication
-      // outgoing: results[], error
+    var error = '';
 
-      var error = '';
+    const { id, search } = req.body;
 
-      const { id, search } = req.body;
+    var _search = search.trim();
 
-      var _search = search.trim();
+    const db = client.db();
+    const results = await
+      db.collection('Users').find({
+        "medication": {
+          $regex: _search + '.*',
+          $options: 'r'
+        }
+      }).toArray();
 
-      const db = client.db();
-      const results = await
-db.collection('Users').find({"medication":{$regex:_search+'.*',
-$options:'r'}}).toArray();
+    var _ret = [];
+    for (var i = 0; i < results.length; i++) {
+      _ret.push(results[i].medication);
+    }
 
-      var _ret = [];
-      for( var i=0; i<results.length; i++ )
-      {
-        _ret.push( results[i].medication );
-      }
-
-      var ret = {results:_ret, error:error};
-      res.status(200).json(ret);
-    });
+    var ret = { results: _ret, error: error };
+    res.status(200).json(ret);
+  });
 
 }
