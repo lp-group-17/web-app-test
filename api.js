@@ -186,7 +186,7 @@ exports.setApp = function (app, client) {
     let { User } = req.body;
     let events = {};
     try {
-      events = await client.db().collection('Events').find({ User: User }).toArray();
+      events = await client.db().collection('Entries').find({ User: User }).toArray();
     } catch (err) {
       error = err.toString();
     }
