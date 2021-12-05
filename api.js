@@ -66,7 +66,14 @@ exports.setApp = function (app, client) {
 
     const { firstname, lastname, username, email, password } = req.body;
 
-    const newUser = { Firstname: firstname, Lastname: lastname, Email: email, Username: username, Password: password, Verified: false };
+    const newUser = {
+      Firstname: firstname,
+      Lastname: lastname,
+      Email: email,
+      Username: username,
+      Password: password,
+      Verified: false
+    };
     var error = {};
     let ret;
     let result;
@@ -99,7 +106,6 @@ exports.setApp = function (app, client) {
       catch (e) {
         error = e.toString();
       }
-      error = '';
       ret = { ID: result.insertedId, error: error };
     }
     res.status(200).json(ret);
@@ -139,6 +145,23 @@ exports.setApp = function (app, client) {
 
     var ret = { User: response, error: '' };
     res.status(200).json(ret);
+  });
+
+  app.post('/api/addEvent', async (req, res, next) => {
+    let newEvent = req.body;
+
+    const db = client.db();
+    try {
+      db.collection('Events').insertOne(newEvent);
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ error: error });
+  });
+
+  app.post('/api/searchEvents', async (req, res, next) => {
+
   });
 
   app.post('/api/searchmedications', async (req, res, next) => {
