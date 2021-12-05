@@ -74,10 +74,9 @@ exports.setApp = function (app, client) {
       Password: password,
       Verified: false
     };
-    var error = {};
+    var error = {emailUsed: false, usernameTaken: false};
     let ret;
     let result;
-    let existingUser;
 
     // Check if user already exists
     try {
@@ -89,12 +88,12 @@ exports.setApp = function (app, client) {
     }
 
     if (existingEmail.length > 0) {
-      error.emailUsed = 'Email already in use';
+      error.emailUsed = true;
       ret = { error: error };
     }
 
     if (existingUsername.length > 0) {
-      error.usernameTaken = 'Username taken';
+      error.usernameTaken = true;
       ret = { error: error };
     }
 
@@ -160,10 +159,10 @@ exports.setApp = function (app, client) {
 
   app.post('/api/getEvents', async (req, res, next) => {
     let error = '';
-    let {User} = req.body;
+    let { User } = req.body;
     let events = {};
     try {
-      events = await client.db().collection('Events').find({User: User}).toArray();
+      events = await client.db().collection('Events').find({ User: User }).toArray();
     } catch (err) {
       error = err.toString();
     }
@@ -171,32 +170,28 @@ exports.setApp = function (app, client) {
     res.status(200).json({ Events: events, error: error });
   });
 
-  app.post('/api/searchmedications', async (req, res, next) => {
-    // incoming: id, medication
-    // outgoing: results[], error
-
-    var error = '';
-
-    const { id, search } = req.body;
-
-    var _search = search.trim();
-
-    const db = client.db();
-    const results = await
-      db.collection('Users').find({
-        "medication": {
-          $regex: _search + '.*',
-          $options: 'r'
-        }
-      }).toArray();
-
-    var _ret = [];
-    for (var i = 0; i < results.length; i++) {
-      _ret.push(results[i].medication);
+  app.post('/api/addEntry', async (req, res, next) => {
+    let error = '';
+    try {
+      client.db().collection('Entries').insertOne(req.body);
+    } catch (err) {
+      error = err.toString();
     }
 
-    var ret = { results: _ret, error: error };
-    res.status(200).json(ret);
+    res.status(200).json({ error: error });
+  });
+
+  app.post('/api/getEntries', async (req, res, next) => {
+    let error = '';
+    let { User } = req.body;
+    let events = {};
+    try {
+      events = await client.db().collection('Events').find({ User: User }).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ Events: events, error: error });
   });
 
 }
