@@ -142,7 +142,7 @@ exports.setApp = function (app, client) {
     } else
       error = 'User not found';
 
-    var ret = { User: response, error: '' };
+    var ret = { User: response, error: error };
     res.status(200).json(ret);
   });
 
