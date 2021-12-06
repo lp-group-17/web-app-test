@@ -63,7 +63,7 @@ exports.setApp = function (app, client) {
   app.post('/api/adduser', async (req, res, next) => {
     // incoming: id, firstname, lastname, email, username
     // outgoing: error
-
+    const db = client.db();
     const { firstname, lastname, username, email, password } = req.body;
 
     const newUser = {
@@ -74,13 +74,12 @@ exports.setApp = function (app, client) {
       Password: password,
       Verified: false
     };
-    var error = {emailUsed: false, usernameTaken: false};
+    var error = { emailUsed: false, usernameTaken: false };
     let ret;
     let result;
 
     // Check if user already exists
     try {
-      const db = client.db();
       existingEmail = await db.collection('Users').find({ Email: email }).toArray();
       existingUsername = await db.collection('Users').find({ Username: username }).toArray();
     } catch (err) {
@@ -99,7 +98,6 @@ exports.setApp = function (app, client) {
 
     if (existingUsername.length == 0 && existingEmail.length == 0) {
       try {
-        const db = client.db();
         result = await db.collection('Users').insertOne(newUser);
       }
       catch (e) {
@@ -113,12 +111,11 @@ exports.setApp = function (app, client) {
   app.post('/api/login', async (req, res, next) => {
     // incoming: email, password, verified
     // outgoing: id, name, email, error
-
+    const db = client.db();
     var error = '';
 
     const { loginID, password } = req.body;
 
-    const db = client.db();
     const results = await
       db.collection('Users').find(
         {
@@ -147,9 +144,10 @@ exports.setApp = function (app, client) {
   });
 
   app.post('/api/addEvent', async (req, res, next) => {
+    const db = client.db();
     let error = '';
     try {
-      client.db().collection('Events').insertOne(req.body);
+      db.collection('Events').insertOne(req.body);
     } catch (err) {
       error = err.toString();
     }
@@ -158,11 +156,12 @@ exports.setApp = function (app, client) {
   });
 
   app.post('/api/getEvents', async (req, res, next) => {
+    const db = client.db();
     let error = '';
     let { User } = req.body;
     let events = {};
     try {
-      events = await client.db().collection('Events').find({ User: User }).toArray();
+      events = await db.collection('Events').find({ User: User }).toArray();
     } catch (err) {
       error = err.toString();
     }
@@ -171,9 +170,10 @@ exports.setApp = function (app, client) {
   });
 
   app.post('/api/addEntry', async (req, res, next) => {
+    const db = client.db();
     let error = '';
     try {
-      client.db().collection('Entries').insertOne(req.body);
+      db.collection('Entries').insertOne(req.body);
     } catch (err) {
       error = err.toString();
     }
@@ -182,16 +182,86 @@ exports.setApp = function (app, client) {
   });
 
   app.post('/api/getEntries', async (req, res, next) => {
+    const db = client.db();
     let error = '';
     let { User } = req.body;
     let entries = {};
     try {
-      entries = await client.db().collection('Entries').find({ User: User }).toArray();
+      entries = await db.collection('Entries').find({ User: User }).toArray();
     } catch (err) {
       error = err.toString();
     }
 
     res.status(200).json({ Entries: entries, error: error });
+  });
+
+  // TODO: Sendgrid stuff
+  // one api to send the email, one to apply verification when link is clicked
+  app.post('/api/sendVerify', async (req, res, next) => { });
+  app.post('/api/verify', async (req, res, next) => { });
+
+  // Checks verification for verifcation mobile page
+  app.post('/api/checkVerification', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let result = false;
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID } = req.body;
+
+    try {
+      result = await db.collection('Users').findOne(
+        { _id: ObjectId(req.body.ID) },
+        { _id: 0, Verified: 1 }
+      );
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ Verified: result.Verified, error: error });
+  });
+
+  // TODO: Sendgrid stuff to send email with link to reset page
+  app.post('/api/sendReset', async (req, res, next) => {
+
+  });
+
+  // Resets the password
+  app.post('/api/resetPassword', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID, Password } = req.body;
+    const updateDocument = {
+      $set: {
+        Password: Password,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
+  });
+
+  // TODO: changePassword endpoint using a check for old password
+  app.post('/api/changePassword', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID, OldPassword, Password } = req.body;
+    const updateDocument = {
+      $set: {
+        Password: Password,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
   });
 
 }
