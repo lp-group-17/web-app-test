@@ -184,9 +184,9 @@ exports.setApp = function (app, client) {
   app.post('/api/getEntries', async (req, res, next) => {
     let error = '';
     let { User } = req.body;
-    let events = {};
+    let entries = {};
     try {
-      events = await client.db().collection('Entries').find({ User: User }).toArray();
+      entries = await client.db().collection('Entries').find({ User: User }).toArray();
     } catch (err) {
       error = err.toString();
     }
