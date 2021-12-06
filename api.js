@@ -191,7 +191,7 @@ exports.setApp = function (app, client) {
       error = err.toString();
     }
 
-    res.status(200).json({ Events: events, error: error });
+    res.status(200).json({ Entries: entries, error: error });
   });
 
 }
