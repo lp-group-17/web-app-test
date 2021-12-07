@@ -34,7 +34,8 @@ const Resources = () => {
 
   return (  
   <div class="wrapper">
-    <Navbar bg="dark" variant="dark" expand="lg">
+   <Navbar bg="dark" variant="dark" expand="lg">
+      <img class="spacer-logo" src={logo} height="64" />
       <Container>
           <Navbar.Brand className='w-10'>Mood Tracker</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,12 +47,10 @@ const Resources = () => {
           </Navbar.Collapse>
       </Container>
     </Navbar>
+
     <div class="center spacer-large">
-      <img src={logo} width="256"/>
-    </div>
-    <div class="center">
-      <h1 class="gradient">
-        MOOD TRACKER
+      <h1 class="text heading">
+        RESOURCES
       </h1>
     </div>
 
@@ -60,14 +59,14 @@ const Resources = () => {
 
     <div class="wrapper">
       <div class="white-background spacer-bottom">
-        <div class="center small-space">
-          <h3 class="spacer-large">
+        <div class="center">
+          <div class="spacer-large subheading">
             FIND HELP NEARBY
-          </h3>
+          </div>
         </div>
         
       
-        <div class="right-align-box gray-background">
+        <div class="center">
         <MapWindow></MapWindow>
         </div>  
       </div>
@@ -77,16 +76,38 @@ const Resources = () => {
 
       <div class="wrapper">
         <div class="white-background">
-        <div class="center small-space">
-          <h3 class="spacer-large">
-            FIND HELP NEARBY
-          </h3>
+        <div class="center ">
+          <div class="spacer-large subheading">
+            CRISIS HOTLINES AND ONLINE RESOURCES
+          </div>
         </div>
         <div class="center paragraph spacer-bottom">
-          <ul>
-            <li> item 1 </li>
-            <li> item 2 </li>
-          </ul>
+        <table class="table p table-striped">
+          <tr>
+            <th>Website</th>
+            <th>Phone Number</th>
+          </tr>
+          <tr>
+            <td><a href="https://www.samhsa.gov/find-treatment" target="_blank">Substance Abuse and Mental Health Services</a></td>
+            <td>1-800-662-HELP (4357)</td>
+          </tr>
+          <tr>
+            <td><a href="https://suicidepreventionlifeline.org" target="_blank">Suicide Prevention Hotline</a></td>
+            <td>1-800-273-8255</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.nami.org/help" target="_blank">National Alliance on Mental Health</a></td>
+            <td>1-800-950-NAMI (6264)</td>
+          </tr>
+          <tr>
+          <td><a href="https://www.apa.org/topics/crisis-hotlines" target="_blank">American Psychological Association</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><a href="https://www.crisistextline.org/" target="_blank">Crisis Text Line</a></td>
+            <td>Text HOME to 741741</td>
+          </tr>
+        </table> 
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ import Kristin from './anotherdayintheoffice.jpg';
 import mobileOne from './mobile1 (1).png';
 import mobileTwo from './mobile2 (1).png';
 import mobileThree from './mobile3 (1).png';
+import phone from './phone.png';
 
 const Login = () => {
   const [ form, setForm ] = useState({})
@@ -82,6 +83,7 @@ const Login = () => {
   return (  
   <div class="wrapper">
     <Navbar bg="dark" variant="dark" expand="lg">
+      <img class="spacer-logo" src={logo} height="64" />
       <Container>
           <Navbar.Brand className='w-10'>Mood Tracker</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -93,80 +95,44 @@ const Login = () => {
           </Navbar.Collapse>
       </Container>
     </Navbar>
-    <div class="center spacer-large">
-      <img src={logo} width="256"/>
-    </div>
-    <div class="center">
-      <h1 class="gradient">
-        MOOD TRACKER
-      </h1>
-    </div>
 
     <div class="spacer-large"></div>
 
-    <div class="center white-background spacer-bottom">
-    <div class="bigger-center spacer-large">
-    <Carousel fade variant="dark">
-      <Carousel.Item>
-        <img
-          className="h-auto w-auto"
-          src={mobileOne}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h2>Mood Tracker companion app</h2>
-          <p></p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="h-auto w-auto"
-          src={mobileTwo}
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Scheduling support</h3>
-          <p>Quickly plan counseling and support meetings</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="h-auto w-auto"
-          src={mobileThree}
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Record mood data</h3>
-          <p>Easily list and track mood statistics</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div class="center paragraph">
+      <div class="paragraph heading spacer-large">
+        <img src={phone} height="512px"/>
+        <div class="">
+      <div class="text-right text">
+        Hello, try out our Mood Tracker 
+        app today!
+      </div>
+      </div>
+      </div>
+    <div class="spacer-large">
+    
     </div>
     
     </div>
 
     <div class="center spacer-xl"></div>
 
-    <div class="center">
-      <div class="white-background">
-        <div class="center small-spacer">
-          <h3 class="spacer-large">
-            <b>ABOUT US</b>
-          </h3>
+    <div class="wrapper">
+      <div class="white-background spacer-bottom">
+        <div class="center">
+          <div class="spacer-large subheading">
+            ABOUT US
+          </div>
         </div>
-        <div class="paragraph">
+        <div class="p paragraph">
           We are the members of COP4331C Group 17 and this is our React project, our own Mood Tracker application.
           This web application serves as a portal to introduce the members of our group while additionally
           containing resources for those in need of immediate mental help.
         </div>
-        <div class="spacer-large"></div>
       </div>
     </div>
-    <div class="center spacer-large"></div>
-    <div class="fat-center">
-    <Card border="secondary" style={{ width: '18rem' }}>
+
+    <div class="fat-center spacer-large">
+    <Card border="secondary" style={{ width: '18rem', height:"24rem" }}>
       <Card.Img cariant="top" src={Rashaad} />
       <Card.Body>
         <Card.Title class="center"><b>Rashaad Pedron</b></Card.Title>
@@ -175,7 +141,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '18rem' }}>
+    <Card border="secondary" style={{ width: '18rem', height:"24rem" }}>
       <Card.Img cariant="top" src={Kristin} />
       <Card.Body>
         <Card.Title class="center"><b>Kristin Crist</b></Card.Title>
@@ -184,7 +150,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '18rem' }}>
+    <Card border="secondary" style={{ width: '18rem', height:"24rem" }}>
       <Card.Img cariant="top" src={Nick} />
       <Card.Body>
         <Card.Title class="center"><b>Nick Zdravkovic</b></Card.Title>
@@ -196,7 +162,7 @@ const Login = () => {
     </div>
     <div class="spacer-small"></div>
     <div class="fat-center">
-    <Card border="secondary" style={{ width: '18rem' }}>
+    <Card border="secondary" style={{ width: '18rem', height:"24rem"}}>
       <Card.Img cariant="top" src={Jared} />
       <Card.Body>
         <Card.Title class="center"><b>Jared Miller</b></Card.Title>
@@ -205,50 +171,26 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '18rem' }}>
+    <Card border="secondary" style={{ width: '18rem', height:"24rem" }}>
       <Card.Img cariant="top" src={Ryan} />
       <Card.Body>
         <Card.Title class="center"><b>Ryan Bugge</b></Card.Title>
-        <Card.Text>
-          Mobile Application and API and Database
+        <Card.Text class="center">
+          Mobile App, API, and Database
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '18rem' }}>
+    <Card border="secondary" style={{ width: '18rem', height:"24rem" }}>
       <Card.Img cariant="top" src={Che} />
       <Card.Body>
         <Card.Title class="center"><b>Che' Baptiste</b></Card.Title>
         <Card.Text>
-        Mobile Application and API
+        Mobile App and API
         </Card.Text>
       </Card.Body>
     </Card>
     </div>
     <div class="spacer-large"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   </div>
   );
