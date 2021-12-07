@@ -15,6 +15,8 @@ const Resources = () => {
     width: '500px'
   };
 
+  
+
   return (  
   <div class="wrapper">
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -43,7 +45,7 @@ const Resources = () => {
         Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things 
       </div>
       <div class="right-align-box gray-background">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.9116429705464!2d-81.20224858420012!3d28.602427382429585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida!5e0!3m2!1sen!2sus!4v1638649456538!5m2!1sen!2sus"
+        <iframe src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0&q=meantl+health+services"
           width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
