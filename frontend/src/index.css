@@ -17,7 +17,7 @@ div {
 }
 
 #wrapper{
-	display:flex;
+	display:inline-block;
 	text-align:center;
 	align-items:center;
 	justify-content:center;
@@ -62,7 +62,6 @@ div {
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	width: 380px;
 }
 
 .bigger-center {
@@ -90,11 +89,10 @@ div {
 }
 
 .fat-center {
-
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	width: 100%;
+	width: 75%;
 }
 
 .textBox {
@@ -123,8 +121,16 @@ div {
 
 }
 
+.spacer-xl {
+	margin-top:15%;
+}
+
 .spacer-large {
 	margin-top:5%;
+}
+
+.spacer-bottom {
+	padding-bottom:5%;
 }
 
 .spacer-small {
@@ -160,6 +166,7 @@ div {
 	background: linear-gradient(to bottom, #ffffff 0%, #4CAF50 100%);
 	padding: 5px;
 	text-align: center;
+	width:75%;
 }
 
 .left-block {
@@ -182,7 +189,7 @@ div {
 }
 
 .wide-box {
-	width: 71%;
+	width: 75%;
 }
 
 .rounded {
@@ -195,21 +202,25 @@ div {
 
 .left-align-box {
 	margin-left: 2%;
-	margin-right: 1%;
-	width: 30%;
+	margin-right: 5%;
+	width: 75%;
 }
 
 .right-align-box {
-	margin-left: 12%;
-	margin-right: 5%;
-	width: 40%;
+	width:75%;
 	padding-top: 20px;
 	padding-bottom: 17px;
 	padding-left: 18px;
+	padding-right:18px;
+	margin-right:5%;
 }
 
 .white-text {
 	color: white;
+}
+
+.paragraph {
+	width: 50%;
 }
 
 code {

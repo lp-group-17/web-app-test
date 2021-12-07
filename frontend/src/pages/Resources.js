@@ -31,26 +31,53 @@ const Resources = () => {
           </Navbar.Collapse>
       </Container>
     </Navbar>
-    <div class="center spacer-small">
+    <div class="center spacer-large">
       <img src={logo} width="256"/>
     </div>
     <div class="center">
-      <h2 class="gradient">
-        Resources
-      </h2>
+      <h1 class="gradient">
+        MOOD TRACKER
+      </h1>
     </div>
-    <div class='spacer-small'></div>
-    <div class="fat-center change-font">
-      <div class="left-align-box white-background">
-        Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things 
-      </div>
-      <div class="right-align-box gray-background">
+
+    <div class="spacer-large"></div>
+
+
+    <div class="wrapper">
+      <div class="white-background spacer-bottom">
+        <div class="center small-space">
+          <h3 class="spacer-large">
+            FIND HELP NEARBY
+          </h3>
+        </div>
+        
+      
+        <div class="right-align-box gray-background">
         <iframe src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0&q=meantl+health+services"
           width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
+        </div>  
       </div>
     </div>
-    <div class='spacer-large'></div>
-  </div>
+
+    <div class="spacer-xl"></div>
+
+      <div class="wrapper">
+        <div class="white-background">
+        <div class="center small-space">
+          <h3 class="spacer-large">
+            FIND HELP NEARBY
+          </h3>
+        </div>
+        <div class="center paragraph spacer-bottom">
+          <ul>
+            <li> item 1 </li>
+            <li> item 2 </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="spacer-xl"></div>
+</div>
   );
 }
 

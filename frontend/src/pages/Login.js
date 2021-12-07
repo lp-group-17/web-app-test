@@ -91,16 +91,19 @@ const Login = () => {
           </Navbar.Collapse>
       </Container>
     </Navbar>
-    <div class="center spacer-small">
+    <div class="center spacer-large">
       <img src={logo} width="256"/>
     </div>
     <div class="center">
-      <h2 class="gradient">
+      <h1 class="gradient">
         MOOD TRACKER
-      </h2>
+      </h1>
     </div>
-    <div class="fat-center gray-background">
-    <div class="bigger-center">
+
+    <div class="spacer-large"></div>
+
+    <div class="center white-background spacer-bottom">
+    <div class="bigger-center spacer-large">
     <Carousel fade variant="dark">
       <Carousel.Item>
         <img
@@ -139,27 +142,32 @@ const Login = () => {
       </Carousel.Item>
     </Carousel>
     </div>
+    
     </div>
-    <div class="spacer-small"></div>
-    <div class="center small-spacer">
-      <h3 class="gradient">
-        ABOUT US
-      </h3>
+
+    <div class="center spacer-xl"></div>
+
+    <div class="center">
+      <div class="white-background">
+        <div class="center small-spacer">
+          <h3 class="spacer-large">
+            <b>ABOUT US</b>
+          </h3>
+        </div>
+        <div class="paragraph">
+          We are the members of COP4331C Group 17 and this is our React project, our own Mood Tracker application.
+          This web application serves as a portal to introduce the members of our group while additionally
+          containing resources for those in need of immediate mental help.
+        </div>
+        <div class="spacer-large"></div>
+      </div>
     </div>
-    <div class="center spacer-small"></div>
-    <div class="center wide-box">
-      <h3 class="vertical-gradient-boxed rounded change-font">
-        We are the members of COP4331C Group 17 and this is our React project, our own Mood Tracker application.
-        This web application serves as a portal to introduce the members of our group while additionally
-        containing resources for those in need of immediate mental help.
-      </h3>
-    </div>
-    <div class="center spacer-small"></div>
+    <div class="center spacer-large"></div>
     <div class="fat-center">
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={rashaad} />
       <Card.Body>
-        <Card.Title>Rashaad Pedron</Card.Title>
+        <Card.Title class="center"><b>Rashaad Pedron</b></Card.Title>
         <Card.Text>
           Project Manager and Database
         </Card.Text>
@@ -168,7 +176,7 @@ const Login = () => {
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={rashaad} />
       <Card.Body>
-        <Card.Title>Kristin Crist</Card.Title>
+        <Card.Title class="center"><b>Kristin Crist</b></Card.Title>
         <Card.Text>
           API and Database
         </Card.Text>
@@ -177,20 +185,19 @@ const Login = () => {
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={rashaad} />
       <Card.Body>
-        <Card.Title>Nick Zdravkovic</Card.Title>
+        <Card.Title class="center"><b>Nick Zdravkovic</b></Card.Title>
         <Card.Text>
           API and Web Application
         </Card.Text>
       </Card.Body>
     </Card>
     </div>
-    <div class="center spacer-large"></div>
     <div class="spacer-small"></div>
     <div class="fat-center">
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={Jared} />
-      <Card.Body>Y
-        <Card.Title>Jared Miller</Card.Title>
+      <Card.Body>
+        <Card.Title class="center"><b>Jared Miller</b></Card.Title>
         <Card.Text>
           Web Application
         </Card.Text>
@@ -199,7 +206,7 @@ const Login = () => {
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={Ryan} />
       <Card.Body>
-        <Card.Title>Ryan Bugge</Card.Title>
+        <Card.Title class="center"><b>Ryan Bugge</b></Card.Title>
         <Card.Text>
           Mobile Application
         </Card.Text>
@@ -208,7 +215,7 @@ const Login = () => {
     <Card border="secondary" style={{ width: '18rem' }}>
       <Card.Img cariant="top" src={Che} />
       <Card.Body>
-        <Card.Title>Che' Baptiste</Card.Title>
+        <Card.Title class="center"><b>Che' Baptiste</b></Card.Title>
         <Card.Text>
         Mobile Application
         </Card.Text>

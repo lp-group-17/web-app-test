@@ -59,84 +59,209 @@ const { Timestamp } = require("bson");
 const express = require('express');
 const router = express.Router();
 
-exports.setApp = function ( app, client )
-{
-    app.post('/api/adduser', async (req, res, next) =>
-    {
-      // incoming: id, firstname, lastname, email, username
-      // outgoing: error
+exports.setApp = function (app, client) {
+  app.post('/api/adduser', async (req, res, next) => {
+    // incoming: id, firstname, lastname, email, username
+    // outgoing: error
+    const db = client.db();
+    const { firstname, lastname, username, email, password } = req.body;
 
-      const { id, firstname, lastname, username, email} = req.body;
+    const newUser = {
+      Firstname: firstname,
+      Lastname: lastname,
+      Email: email,
+      Username: username,
+      Password: password,
+      Verified: false
+    };
+    var error = { emailUsed: false, usernameTaken: false };
+    let ret;
+    let result;
 
-      const newUser = {User:id,Firstname:firstname,Lastname:lastname,Email:email,Username:username};
-      var error = '';
+    // Check if user already exists
+    try {
+      existingEmail = await db.collection('Users').find({ Email: email }).toArray();
+      existingUsername = await db.collection('Users').find({ Username: username }).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
 
-      try
-      {
-        const db = client.db();
-        const result = db.collection('Users').insertOne(newUser);
+    if (existingEmail.length > 0) {
+      error.emailUsed = true;
+      ret = { error: error };
+    }
+
+    if (existingUsername.length > 0) {
+      error.usernameTaken = true;
+      ret = { error: error };
+    }
+
+    if (existingUsername.length == 0 && existingEmail.length == 0) {
+      try {
+        result = await db.collection('Users').insertOne(newUser);
       }
-      catch(e)
-      {
+      catch (e) {
         error = e.toString();
       }
+      ret = { ID: result.insertedId, error: error };
+    }
+    res.status(200).json(ret);
+  });
 
-      var ret = { error: error };
-      res.status(200).json(ret);
-    });
+  app.post('/api/login', async (req, res, next) => {
+    // incoming: email, password, verified
+    // outgoing: id, name, email, error
+    const db = client.db();
+    var error = '';
 
-    app.post('/api/login', async (req, res, next) =>
-    {
-      // incoming: email, password, verified
-      // outgoing: id, name, email, error
+    const { loginID, password } = req.body;
 
-     var error = '';
+    const results = await
+      db.collection('Users').find(
+        {
+          $and: [
+            {
+              $or: [
+                { Email: loginID },
+                { Username: loginID }
+              ]
+            },
+            { Password: password }
+          ]
+        }
+      ).toArray();
 
-      const { email, password, verified } = req.body;
+    let response = {};
 
-      const db = client.db();
-      const results = await
-db.collection('Users').find({Email:email,Password:password,Verified:verified}).toArray();
+    if (results.length > 0) {
+      response = results[0];
+      delete response.Password;
+    } else
+      error = 'User not found';
 
-      var id = -1;
-      var fn = '';
-      var ln = '';
+    var ret = { User: response, error: error };
+    res.status(200).json(ret);
+  });
 
-      if( results.length > 0 )
-      {
-        id = results[0].User;
-        fn = results[0].Name;
-        ln = results[0].Email;
-      }
+  app.post('/api/addEvent', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    try {
+      db.collection('Events').insertOne(req.body);
+    } catch (err) {
+      error = err.toString();
+    }
 
-      var ret = { User:id, Name:fn, Email:ln, error:''};
-      res.status(200).json(ret);
-    });
+    res.status(200).json({ error: error });
+  });
 
-    app.post('/api/searchmedications', async (req, res, next) =>
-    {
-      // incoming: id, medication
-      // outgoing: results[], error
+  app.post('/api/getEvents', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User } = req.body;
+    let events = {};
+    try {
+      events = await db.collection('Events').find({ User: User }).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
 
-      var error = '';
+    res.status(200).json({ Events: events, error: error });
+  });
 
-      const { id, search } = req.body;
+  app.post('/api/addEntry', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    try {
+      db.collection('Entries').insertOne(req.body);
+    } catch (err) {
+      error = err.toString();
+    }
 
-      var _search = search.trim();
+    res.status(200).json({ error: error });
+  });
 
-      const db = client.db();
-      const results = await
-db.collection('Users').find({"medication":{$regex:_search+'.*',
-$options:'r'}}).toArray();
+  app.post('/api/getEntries', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User } = req.body;
+    let entries = {};
+    try {
+      entries = await db.collection('Entries').find({ User: User }).toArray();
+    } catch (err) {
+      error = err.toString();
+    }
 
-      var _ret = [];
-      for( var i=0; i<results.length; i++ )
-      {
-        _ret.push( results[i].medication );
-      }
+    res.status(200).json({ Entries: entries, error: error });
+  });
 
-      var ret = {results:_ret, error:error};
-      res.status(200).json(ret);
-    });
+  // TODO: Sendgrid stuff
+  // one api to send the email, one to apply verification when link is clicked
+  app.post('/api/sendVerify', async (req, res, next) => { });
+  app.post('/api/verify', async (req, res, next) => { });
+
+  // Checks verification for verifcation mobile page
+  app.post('/api/checkVerification', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let result = false;
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID } = req.body;
+
+    try {
+      result = await db.collection('Users').findOne(
+        { _id: ObjectId(req.body.ID) },
+        { _id: 0, Verified: 1 }
+      );
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ Verified: result.Verified, error: error });
+  });
+
+  // TODO: Sendgrid stuff to send email with link to reset page
+  app.post('/api/sendReset', async (req, res, next) => {
+
+  });
+
+  // Resets the password
+  app.post('/api/resetPassword', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID, Password } = req.body;
+    const updateDocument = {
+      $set: {
+        Password: Password,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
+  });
+
+  // TODO: changePassword endpoint using a check for old password
+  app.post('/api/changePassword', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID, OldPassword, Password } = req.body;
+    const updateDocument = {
+      $set: {
+        Password: Password,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
+  });
 
 }
