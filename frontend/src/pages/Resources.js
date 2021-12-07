@@ -7,15 +7,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Map, Marker, GoogleApiWrapper, LoadScript, GoogleMap } from 'google-maps-react';
+import MapWindow from './MapWindow';
 
 const Resources = () => {
+
+  var crd = null;
 
   const mapStyles = {
     height: '500px',
     width: '500px'
   };
 
-  
+  var options = {
+    maximumAge: 0
+  };
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
+  function success(pos) {
+    crd = pos.coords;
+  }
 
   return (  
   <div class="wrapper">
@@ -53,8 +68,7 @@ const Resources = () => {
         
       
         <div class="right-align-box gray-background">
-        <iframe src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0&q=meantl+health+services"
-          width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
+          
         </div>  
       </div>
     </div>
@@ -77,6 +91,7 @@ const Resources = () => {
       </div>
     </div>
     <div class="spacer-xl"></div>
+    <MapWindow></MapWindow>
 </div>
   );
 }
