@@ -7,10 +7,12 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
-import rashaad from './suzuranisourlight.jpg';
+import Rashaad from './suzuranisourlight.jpg';
 import Che from './CartoonNetwork.jpg';
 import Ryan from './MaceWindont.jpg';
 import Jared from './DokutahOnZeroSanity.jpg';
+import Nick from './nickdidntsendanimage.jpg';
+import Kristin from './anotherdayintheoffice.jpg';
 import mobileOne from './mobile1 (1).png';
 import mobileTwo from './mobile2 (1).png';
 import mobileThree from './mobile3 (1).png';
@@ -165,7 +167,7 @@ const Login = () => {
     <div class="center spacer-large"></div>
     <div class="fat-center">
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Rashaad} />
       <Card.Body>
         <Card.Title class="center"><b>Rashaad Pedron</b></Card.Title>
         <Card.Text>
@@ -174,7 +176,7 @@ const Login = () => {
       </Card.Body>
     </Card>
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Kristin} />
       <Card.Body>
         <Card.Title class="center"><b>Kristin Crist</b></Card.Title>
         <Card.Text>
@@ -183,11 +185,11 @@ const Login = () => {
       </Card.Body>
     </Card>
     <Card border="secondary" style={{ width: '18rem' }}>
-      <Card.Img cariant="top" src={rashaad} />
+      <Card.Img cariant="top" src={Nick} />
       <Card.Body>
         <Card.Title class="center"><b>Nick Zdravkovic</b></Card.Title>
         <Card.Text>
-          API and Web Application
+          Web Application
         </Card.Text>
       </Card.Body>
     </Card>
@@ -208,7 +210,7 @@ const Login = () => {
       <Card.Body>
         <Card.Title class="center"><b>Ryan Bugge</b></Card.Title>
         <Card.Text>
-          Mobile Application
+          Mobile Application and API and Database
         </Card.Text>
       </Card.Body>
     </Card>
@@ -217,7 +219,7 @@ const Login = () => {
       <Card.Body>
         <Card.Title class="center"><b>Che' Baptiste</b></Card.Title>
         <Card.Text>
-        Mobile Application
+        Mobile Application and API
         </Card.Text>
       </Card.Body>
     </Card>
