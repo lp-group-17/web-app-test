@@ -264,4 +264,7 @@ exports.setApp = function (app, client) {
     res.status(200).json({ error: error });
   });
 
+  // TODO: delete entry
+
+  // TODO: delete event
 }
