@@ -68,7 +68,7 @@ const Resources = () => {
         
       
         <div class="right-align-box gray-background">
-          
+        <MapWindow></MapWindow>
         </div>  
       </div>
     </div>
@@ -91,7 +91,6 @@ const Resources = () => {
       </div>
     </div>
     <div class="spacer-xl"></div>
-    <MapWindow></MapWindow>
 </div>
   );
 }
