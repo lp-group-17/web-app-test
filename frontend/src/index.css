@@ -16,13 +16,70 @@ div {
 	margin:auto;
 }
 
+.navbar-brand {
+	font-size:3rem;
+}
+
+.heading { 
+	font-size:2.5rem;
+	font-weight:bold;
+}
+
+.subheading {
+	font-size:1.75rem;
+	font-weight:bold;
+}
+
+.subheading_alt {
+	font-size:1.75rem;
+	font-weight:bold;
+	text-align:right;
+}
+
+.p {
+	font-size:1.25rem;
+}
+
 #wrapper{
 	display:inline-block;
 	text-align:center;
 	align-items:center;
 	justify-content:center;
-	width:450px;
-	
+	position:relative;
+}
+
+h1 {
+	font-size:2.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border:hidden;
+}
+
+tr, td, th {
+  border: none;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td:nth-child(even) {
+	text-align:right;
+}
+
+th:nth-child(even) {
+	text-align:right;
+}
+
+.image {
+	position:absolute;
+	top:50%;
+	left:25%;
 }
 
 .gradient {
@@ -61,7 +118,13 @@ div {
 .center {
 	display:flex;
 	justify-content:center;
-	align-items:center;
+	align-content:center;
+}
+
+.text-right {
+	align-content:right;
+	text-align:right;
+	margin-left:15%;
 }
 
 .bigger-center {
@@ -85,14 +148,26 @@ div {
 }
 
 .white-background {
-	background:rgb(255, 255, 255)
+	position:relative;
+	background:rgb(255, 255, 255);
+}
+
+.white-background-image {
+	position:relative;
+	background-color:rgb(255,255,255);
 }
 
 .fat-center {
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	width: 75%;
+	width: 900px;
+}
+
+.spacer-logo {
+	margin-left:5%;
+	margin-top:1%;
+	margin-bottom:1%;
 }
 
 .textBox {
@@ -161,14 +236,6 @@ div {
 	text-align: center;
 }
 
-.vertical-gradient-boxed {
-	border: linear-gradient(rgb(103,58,183), rgb(63,81,181));
-	background: linear-gradient(to bottom, #ffffff 0%, #4CAF50 100%);
-	padding: 5px;
-	text-align: center;
-	width:75%;
-}
-
 .left-block {
 	display: inline-block;
 	width: 40%;
@@ -219,8 +286,10 @@ div {
 	color: white;
 }
 
+
 .paragraph {
-	width: 50%;
+	display:flex;
+	width:55rem;
 }
 
 code {
