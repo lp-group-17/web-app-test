@@ -29,26 +29,54 @@ const Resources = () => {
           </Navbar.Collapse>
       </Container>
     </Navbar>
-    <div class="center spacer-small">
+    <div class="center spacer-large">
       <img src={logo} width="256"/>
     </div>
     <div class="center">
-      <h2 class="gradient">
-        Resources
-      </h2>
+      <h1 class="gradient">
+        MOOD TRACKER
+      </h1>
     </div>
-    <div class='spacer-small'></div>
-    <div class="fat-center change-font">
-      <div class="left-align-box white-background">
-        Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things Stuff and Things 
-      </div>
-      <div class="right-align-box gray-background">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.9116429705464!2d-81.20224858420012!3d28.602427382429585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida!5e0!3m2!1sen!2sus!4v1638649456538!5m2!1sen!2sus"
-          width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
+
+    <div class="spacer-large"></div>
+
+
+    <div class="wrapper">
+      <div class="white-background spacer-bottom">
+        <div class="center small-space">
+          <h3 class="spacer-large">
+            FIND HELP NEARBY
+          </h3>
+        </div>
+        
+      
+        <div class="paragraph">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.9116429705464!2d-81.20224858420012!3d28.602427382429585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7685d6a0a495f%3A0x5fd59b92b3c79bab!2sUniversity%20of%20Central%20Florida!5e0!3m2!1sen!2sus!4v1638649456538!5m2!1sen!2sus"
+            width="100%" height="400" style={{border:0}} allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>  
       </div>
     </div>
-    <div class='spacer-large'></div>
-  </div>
+
+    <div class="spacer-xl"></div>
+
+      <div class="wrapper">
+        <div class="white-background">
+        <div class="center small-space">
+          <h3 class="spacer-large">
+            FIND HELP NEARBY
+          </h3>
+        </div>
+        <div class="center paragraph spacer-bottom">
+          <ul>
+            <li> item 1 </li>
+            <li> item 2 </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="spacer-xl"></div>
+</div>
   );
 }
 
