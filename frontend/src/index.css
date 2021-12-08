@@ -16,6 +16,21 @@ div {
 	margin:auto;
 }
 
+.btn, .btn-primary {
+	color:rgb(68, 84, 186) !important;
+	background-color:rgb(255,255,255) !important;
+	border-radius:height/2;
+}
+
+.btn-primary:hover, btn-primary:active {
+	color:rgb(255,255,255) !important;
+	background-color:rgb(52, 67, 164) !important;
+}
+
+.navbar-brand {
+	font-size:3rem;
+}
+
 .heading { 
 	font-size:2.5rem;
 	font-weight:bold;
