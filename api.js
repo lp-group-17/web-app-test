@@ -195,10 +195,24 @@ exports.setApp = function (app, client) {
     res.status(200).json({ Entries: entries, error: error });
   });
 
-  // TODO: Sendgrid stuff
-  // one api to send the email, one to apply verification when link is clicked
-  app.post('/api/sendVerify', async (req, res, next) => { });
-  app.post('/api/verify', async (req, res, next) => { });
+  app.post('/api/verify', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID } = req.body;
+    const updateDocument = {
+      $set: {
+        Verified: true,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
+  });
 
   // Checks verification for verifcation mobile page
   app.post('/api/checkVerification', async (req, res, next) => {
