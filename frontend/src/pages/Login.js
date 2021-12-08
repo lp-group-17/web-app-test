@@ -104,7 +104,7 @@ const Login = () => {
           Try out our Mood Tracker 
           app today!
           <div class="text-right">
-          <a href="https://github.com/lp-group-17/mobile-app/releases/download/test/app-arm64-v8a-release.apk" class="btn btn-primary">DOWNLOAD APP</a>
+          <a href="https://github.com/lp-group-17/mobile-app/releases/download/test/app-arm64-v8a-release.apk" class="btn btn-primary rounded-pill">DOWNLOAD APP</a>
 
       </div>
         </div>
@@ -152,7 +152,7 @@ const Login = () => {
       TEAM MEMBERS
     </div>
     <div class="fat-center spacer-small">
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Rashaad} />
       <Card.Body>
         <Card.Title class="center"><b>Rashaad Pedron</b></Card.Title>
@@ -161,7 +161,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Kristin} />
       <Card.Body>
         <Card.Title class="center"><b>Kristin Crist</b></Card.Title>
@@ -170,7 +170,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Jared} />
       <Card.Body>
         <Card.Title class="center"><b>Jared Miller</b></Card.Title>
@@ -183,7 +183,7 @@ const Login = () => {
     </div>
     <div class="spacer-small"></div>
     <div class="fat-center">
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Che} />
       <Card.Body>
         <Card.Title class="center"><b>Che' Baptiste</b></Card.Title>
@@ -192,7 +192,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Ryan} />
       <Card.Body>
         <Card.Title class="center"><b>Ryan Bugge</b></Card.Title>
@@ -201,7 +201,7 @@ const Login = () => {
         </Card.Text>
       </Card.Body>
     </Card>
-    <Card border="secondary" style={{ width: '15rem', height:"20rem" }}>
+    <Card border="secondary" style={{ width: '15rem', height:"21rem" }}>
       <Card.Img cariant="top" src={Nick} />
       <Card.Body>
         <Card.Title class="center"><b>Nick Zdravkovic</b></Card.Title>
