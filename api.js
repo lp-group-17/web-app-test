@@ -332,7 +332,7 @@ exports.setApp = function (app, client) {
 
     const { loginID } = req.body;
     let email = '';
-
+    try {
     const results = await
       db.collection('Users').findOne(
         {
@@ -343,8 +343,12 @@ exports.setApp = function (app, client) {
         },
 
       );
+      email = results.Email;
+    }catch (err) {
+      error = err.toString();
+    }
 
-    email = results.Email ? results.Email : '';
+
 
     var ret = { Email: email, error: error };
     res.status(200).json(ret);
