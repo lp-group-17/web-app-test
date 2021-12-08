@@ -323,4 +323,23 @@ exports.setApp = function (app, client) {
 
     res.status(200).json({ error: error });
   });
+
+  app.post('/api/getEmail', async (req, res, next) => {
+    // incoming: email, password, verified
+    // outgoing: id, name, email, error
+    const db = client.db();
+    var error = '';
+
+    const { loginID } = req.body;
+
+    const results = await
+      db.collection('Users').findOne(
+        {
+          Username: loginID
+        }
+      );
+
+    var ret = { Email: results.Email, error: error };
+    res.status(200).json(ret);
+  });
 }
