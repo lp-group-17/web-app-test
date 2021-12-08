@@ -104,7 +104,7 @@ const Login = () => {
           Try out our Mood Tracker 
           app today!
           <div class="text-right">
-          <a href="https://github.com/lp-group-17/mobile-app/releases/download/test/app-arm64-v8a-release.apk" class="btn btn-primary rounded-pill">DOWNLOAD APP</a>
+          <a href="https://github.com/lp-group-17/mobile-app/releases/download/beta/app-arm64-v8a-release.apk" class="btn btn-primary rounded-pill">DOWNLOAD APP</a>
 
       </div>
         </div>
