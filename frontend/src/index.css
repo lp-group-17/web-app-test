@@ -127,6 +127,12 @@ th:nth-child(even) {
 	margin-left:15%;
 }
 
+.text-left { 
+	align-content:left;
+	text-align:left;
+	margin-right:15%;
+}
+
 .bigger-center {
 	display:flex;
 	justify-content:center;
@@ -187,9 +193,6 @@ th:nth-child(even) {
 	position:relative;
 }
 
-.text-right {
-	float:right;
-}
 
 .text {
 	color:#FFF;
@@ -221,10 +224,11 @@ th:nth-child(even) {
 }
 
 .boxed {
-	border: linear-gradient(rgb(103,58,183), rgb(63,81,181));
-	background: linear-gradient(to right, #4CAF50 0%, #FFEB3B 100%);
-	padding: 5px;
+	border: rgb(255,255,255);
+	background: rgb(255,255,255);
+	padding: 1rem;
 	text-align: center;
+	border-radius:1rem;
 }
 
 .boxed-with-gradient-border {
@@ -260,7 +264,7 @@ th:nth-child(even) {
 }
 
 .rounded {
-	border-radius: 25px;
+	border-radius: 5rem;
 }
 
 .change-font {
