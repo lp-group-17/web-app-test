@@ -331,15 +331,22 @@ exports.setApp = function (app, client) {
     var error = '';
 
     const { loginID } = req.body;
+    let email = '';
 
     const results = await
       db.collection('Users').findOne(
         {
-          Username: loginID
-        }
+          $or: [
+            { Email: loginID },
+            { Username: loginID }
+          ]
+        },
+
       );
 
-    var ret = { Email: results.Email, error: error };
+    email = results.Email ? results.Email : '';
+
+    var ret = { Email: email, error: error };
     res.status(200).json(ret);
   });
 }
