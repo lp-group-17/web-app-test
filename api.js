@@ -281,4 +281,46 @@ exports.setApp = function (app, client) {
   // TODO: delete entry
 
   // TODO: delete event
+  app.post('/api/deleteEvent', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User, Title, Descrip, From, To, AllDay } = req.body;
+    try {
+      await db.collection('Events').deleteOne({
+        $and: [
+          { User: User },
+          { Title: Title },
+          { Descrip: Descrip },
+          { From: From },
+          { To: To },
+          { AllDay: AllDay }]
+      });
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ error: error });
+  });
+
+  app.post('/api/deleteEntry', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User, Date, Descrip, Q1, Q2, Q3, Q4 } = req.body;
+    try {
+      await db.collection('Entries').deleteOne({
+        $and: [
+          { User: User },
+          { Date: Date },
+          { Descrip: Descrip },
+          { Q1: Q1 },
+          { Q2: Q2 },
+          { Q3: Q3 },
+          { Q4: Q4 }]
+      });
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ error: error });
+  });
 }
