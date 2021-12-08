@@ -101,17 +101,32 @@ const Login = () => {
     <div class="center paragraph">
       <div class="paragraph heading spacer-large">
         <img src={phone} height="512px"/>
-        <div class="">
-      <div class="text-right text">
-        Hello, try out our Mood Tracker 
-        app today!
-      </div>
-      </div>
-      </div>
-    <div class="spacer-large">
-    
+        <div class="text-right text">
+          Try out our Mood Tracker 
+          app today!
+        </div>
     </div>
-    
+      <div class="spacer-large"></div>
+    </div>
+
+    <div class="center paragraph">
+      <div class="paragraph heading spacer-large">
+        <div class="text-left text">
+          Easily list and track mood statistics
+        </div>
+        <img class="boxed rounded" src={mobileThree} height="512px"/>
+    </div>
+      <div class="spacer-large"></div>
+    </div>
+
+    <div class="center paragraph">
+      <div class="paragraph heading spacer-large">
+        <img class="boxed rounded" src={mobileTwo} height="512px"/>
+        <div class="text-right text">
+          Quickly plan support and counseling sessions
+        </div>
+    </div>
+      <div class="spacer-large"></div>
     </div>
 
     <div class="center spacer-xl"></div>
