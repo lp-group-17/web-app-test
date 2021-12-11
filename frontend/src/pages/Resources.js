@@ -118,4 +118,4 @@ const Resources = () => {
 
 export default Resources;
 
-//<Map google={this.props.google} /> AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0
+//<Map google={this.props.google} />

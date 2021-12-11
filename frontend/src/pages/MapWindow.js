@@ -31,10 +31,10 @@ class MapWindow extends React.Component {
             <div>
                 {
                     this.state.latitude && this.state.longitude ?
-                    <iframe src={`https://www.google.com/maps/embed/v1/search?key=AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0&q=mental+health+services&center=${this.state.latitude},${this.state.longitude}`}
+                    <iframe src={`https://www.google.com/maps/embed/v1/search?key==mental+health+services&center=${this.state.latitude},${this.state.longitude}`}
                         width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
                     :
-                    <iframe src={`https://www.google.com/maps/embed/v1/search?key=AIzaSyAnTjBi3Hn-3OgW13zCOe5gRzT9etArFG0&q=mental+health+services`}
+                    <iframe src={`https://www.google.com/maps/embed/v1/search?key==mental+health+services`}
                         width="700" height="550" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
                 }
             </div>
