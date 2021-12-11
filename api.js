@@ -195,10 +195,24 @@ exports.setApp = function (app, client) {
     res.status(200).json({ Entries: entries, error: error });
   });
 
-  // TODO: Sendgrid stuff
-  // one api to send the email, one to apply verification when link is clicked
-  app.post('/api/sendVerify', async (req, res, next) => { });
-  app.post('/api/verify', async (req, res, next) => { });
+  app.post('/api/verify', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    var ObjectId = require('mongodb').ObjectId;
+    let { ID } = req.body;
+    const updateDocument = {
+      $set: {
+        Verified: true,
+      },
+    };
+
+    try {
+      const result = await db.collection('Users').updateOne({ _id: ObjectId(ID) }, updateDocument);
+    } catch (err) {
+      error = err.toString();
+    }
+    res.status(200).json({ error: error });
+  });
 
   // Checks verification for verifcation mobile page
   app.post('/api/checkVerification', async (req, res, next) => {
@@ -267,4 +281,76 @@ exports.setApp = function (app, client) {
   // TODO: delete entry
 
   // TODO: delete event
+  app.post('/api/deleteEvent', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User, Title, Descrip, From, To, AllDay } = req.body;
+    try {
+      await db.collection('Events').deleteOne({
+        $and: [
+          { User: User },
+          { Title: Title },
+          { Descrip: Descrip },
+          { From: From },
+          { To: To },
+          { AllDay: AllDay }]
+      });
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ error: error });
+  });
+
+  app.post('/api/deleteEntry', async (req, res, next) => {
+    const db = client.db();
+    let error = '';
+    let { User, Date, Descrip, Q1, Q2, Q3, Q4 } = req.body;
+    try {
+      await db.collection('Entries').deleteOne({
+        $and: [
+          { User: User },
+          { Date: Date },
+          { Descrip: Descrip },
+          { Q1: Q1 },
+          { Q2: Q2 },
+          { Q3: Q3 },
+          { Q4: Q4 }]
+      });
+    } catch (err) {
+      error = err.toString();
+    }
+
+    res.status(200).json({ error: error });
+  });
+
+  app.post('/api/getEmail', async (req, res, next) => {
+    // incoming: email, password, verified
+    // outgoing: id, name, email, error
+    const db = client.db();
+    var error = '';
+
+    const { loginID } = req.body;
+    let email = '';
+    try {
+    const results = await
+      db.collection('Users').findOne(
+        {
+          $or: [
+            { Email: loginID },
+            { Username: loginID }
+          ]
+        },
+
+      );
+      email = results.Email;
+    }catch (err) {
+      error = err.toString();
+    }
+
+
+
+    var ret = { Email: email, error: error };
+    res.status(200).json(ret);
+  });
 }
